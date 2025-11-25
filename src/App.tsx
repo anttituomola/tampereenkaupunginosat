@@ -7,6 +7,7 @@ import { LocateMode } from './components/LocateMode';
 import { About } from './components/About';
 import { NotFound } from './components/NotFound';
 import { Navigation } from './components/Navigation';
+import { Footer } from './components/Footer';
 import './App.css';
 
 function App() {
@@ -78,6 +79,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </BrowserRouter>
   );

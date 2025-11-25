@@ -53,6 +53,16 @@ export function About() {
             </li>
           </ul>
         </section>
+
+        <section className="about-section">
+          <h2>Kehittäjä</h2>
+          <p>
+            Tämän sovelluksen on kehittänyt{' '}
+            <a href="https://www.anttituomola.fi/" target="_blank" rel="noopener noreferrer">
+              Antti Tuomola
+            </a>.
+          </p>
+        </section>
       </div>
     </div>
   );

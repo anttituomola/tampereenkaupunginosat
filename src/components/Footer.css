@@ -1,0 +1,36 @@
+.app-footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  margin-top: auto;
+}
+
+.app-footer p {
+  margin: 0;
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.app-footer a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.app-footer a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .app-footer {
+    padding: 0.75rem;
+  }
+
+  .app-footer p {
+    font-size: 0.8125rem;
+  }
+}
+

@@ -62,6 +62,18 @@
   font-weight: 600;
 }
 
+.about-section a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.about-section a:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
 @media (max-width: 640px) {
   .about-container {
     padding: 1rem 0.5rem;
