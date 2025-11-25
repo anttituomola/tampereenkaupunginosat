@@ -22,6 +22,9 @@
   flex: 1;
   min-height: 0;
   height: 100%;
+  touch-action: pan-x pan-y pinch-zoom;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .map-svg {

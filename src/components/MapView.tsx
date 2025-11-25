@@ -71,6 +71,10 @@ export function MapView({
   const startViewBoxRef = useRef<{ x: number; y: number; width: number; height: number } | null>(null);
   const targetViewBoxRef = useRef<{ x: number; y: number; width: number; height: number } | null>(null);
   const startTimeRef = useRef<number | null>(null);
+  
+  // Pinch zoom state
+  const pinchStartRef = useRef<{ distance: number; center: { x: number; y: number }; viewBox: { x: number; y: number; width: number; height: number } } | null>(null);
+  const mapWrapperRef = useRef<HTMLDivElement>(null);
 
   // Full viewBox (initial state)
   const fullViewBox = useMemo(() => ({
@@ -360,6 +364,75 @@ export function MapView({
     setManualZoom(null);
   }, []);
 
+  // Calculate distance between two touch points
+  const getTouchDistance = useCallback((touch1: React.Touch, touch2: React.Touch) => {
+    const dx = touch2.clientX - touch1.clientX;
+    const dy = touch2.clientY - touch1.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  }, []);
+
+  // Convert screen coordinates to SVG coordinates
+  const screenToSvg = useCallback((screenX: number, screenY: number, viewBox: { x: number; y: number; width: number; height: number }, container: HTMLDivElement) => {
+    const rect = container.getBoundingClientRect();
+    const svgX = viewBox.x + (screenX - rect.left) / rect.width * viewBox.width;
+    const svgY = viewBox.y + (screenY - rect.top) / rect.height * viewBox.height;
+    return { x: svgX, y: svgY };
+  }, []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const touch1 = e.touches[0];
+      const touch2 = e.touches[1];
+      const distance = getTouchDistance(touch1, touch2);
+      const centerX = (touch1.clientX + touch2.clientX) / 2;
+      const centerY = (touch1.clientY + touch2.clientY) / 2;
+      
+      if (mapWrapperRef.current) {
+        const svgCenter = screenToSvg(centerX, centerY, currentViewBox, mapWrapperRef.current);
+        pinchStartRef.current = {
+          distance,
+          center: svgCenter,
+          viewBox: { ...currentViewBox }
+        };
+      }
+    }
+  }, [currentViewBox, getTouchDistance, screenToSvg]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 2 && pinchStartRef.current && mapWrapperRef.current) {
+      e.preventDefault();
+      const touch1 = e.touches[0];
+      const touch2 = e.touches[1];
+      const currentDistance = getTouchDistance(touch1, touch2);
+      // When fingers move apart (distance increases), zoom in (decrease viewBox)
+      const scale = pinchStartRef.current.distance / currentDistance;
+      
+      const startViewBox = pinchStartRef.current.viewBox;
+      const newWidth = startViewBox.width * scale;
+      const newHeight = startViewBox.height * scale;
+      
+      // Limit zoom levels
+      if (newWidth < SVG_WIDTH * 0.1 || newHeight < SVG_HEIGHT * 0.1) return;
+      if (newWidth > SVG_WIDTH || newHeight > SVG_HEIGHT) return;
+      
+      // Get current pinch center in SVG coordinates
+      const centerX = (touch1.clientX + touch2.clientX) / 2;
+      const centerY = (touch1.clientY + touch2.clientY) / 2;
+      const pinchCenter = screenToSvg(centerX, centerY, startViewBox, mapWrapperRef.current);
+      
+      // Calculate new viewBox centered on the pinch center
+      const newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, pinchCenter.x - newWidth / 2));
+      const newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, pinchCenter.y - newHeight / 2));
+      
+      setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
+    }
+  }, [getTouchDistance, screenToSvg]);
+
+  const handleTouchEnd = useCallback(() => {
+    pinchStartRef.current = null;
+  }, []);
+
   const handleDistrictClick = useCallback((districtId: string) => {
     if (onDistrictClick) {
       onDistrictClick(districtId);
@@ -374,7 +447,13 @@ export function MapView({
 
   return (
     <div className="map-container">
-      <div className="map-wrapper">
+      <div 
+        className="map-wrapper"
+        ref={mapWrapperRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <svg
           viewBox={viewBoxString}
           className="map-svg"
