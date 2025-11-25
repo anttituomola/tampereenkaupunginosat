@@ -117,6 +117,28 @@
   animation: pulse 1.5s ease-in-out infinite;
 }
 
+.district-path.selected {
+  fill: rgba(40, 167, 69, 0.7);
+  stroke: #28a745;
+  stroke-width: 3;
+}
+
+.district-path.wrong {
+  fill: rgba(220, 53, 69, 0.7);
+  stroke: #dc3545;
+  stroke-width: 3;
+  animation: wrongPulse 0.5s ease-in-out;
+}
+
+@keyframes wrongPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
 @keyframes pulse {
   0%, 100% {
     opacity: 1;
@@ -125,4 +147,5 @@
     opacity: 0.8;
   }
 }
+
 

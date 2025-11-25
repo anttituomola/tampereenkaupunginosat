@@ -4,7 +4,11 @@ import './MapView.css';
 
 interface MapViewProps {
   districts: District[];
-  highlightedDistrictId: string | null;
+  highlightedDistrictId?: string | null;
+  onDistrictClick?: (districtId: string) => void;
+  onDistrictHover?: (districtId: string | null) => void;
+  selectedDistrictId?: string | null;
+  wrongDistrictId?: string | null;
 }
 
 // SVG dimensions matching the basemap PNG (map_tampere.png)
@@ -53,7 +57,14 @@ function getPathBounds(pathString: string) {
   return { minX, minY, maxX, maxY };
 }
 
-export function MapView({ districts, highlightedDistrictId }: MapViewProps) {
+export function MapView({ 
+  districts, 
+  highlightedDistrictId, 
+  onDistrictClick,
+  onDistrictHover,
+  selectedDistrictId,
+  wrongDistrictId
+}: MapViewProps) {
   const [manualZoom, setManualZoom] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
   const [animatedViewBox, setAnimatedViewBox] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
   const animationRef = useRef<number | null>(null);
@@ -349,6 +360,21 @@ export function MapView({ districts, highlightedDistrictId }: MapViewProps) {
     setManualZoom(null);
   }, []);
 
+  const handleDistrictClick = useCallback((districtId: string) => {
+    if (onDistrictClick) {
+      onDistrictClick(districtId);
+    }
+  }, [onDistrictClick]);
+
+  const handleDistrictHover = useCallback((districtId: string | null) => {
+    if (onDistrictHover) {
+      onDistrictHover(districtId);
+    }
+  }, [onDistrictHover]);
+
+  // Determine which district should be highlighted
+  const effectiveHighlightedId = selectedDistrictId || highlightedDistrictId;
+
   return (
     <div className="map-container">
       <div className="map-wrapper">
@@ -368,15 +394,32 @@ export function MapView({ districts, highlightedDistrictId }: MapViewProps) {
           />
           
           {/* Districts overlay */}
-          {districts.map((district) => (
-            <path
-              key={district.id}
-              d={district.path}
-              className={`district-path ${
-                district.id === highlightedDistrictId ? 'highlighted' : ''
-              }`}
-            />
-          ))}
+          {districts.map((district) => {
+            const isHighlighted = district.id === highlightedDistrictId;
+            const isSelected = district.id === selectedDistrictId;
+            const isWrong = district.id === wrongDistrictId;
+            
+            let className = 'district-path';
+            if (isWrong) {
+              className += ' wrong';
+            } else if (isHighlighted) {
+              className += ' highlighted';
+            } else if (isSelected) {
+              className += ' selected';
+            }
+            
+            return (
+              <path
+                key={district.id}
+                d={district.path}
+                className={className}
+                onClick={() => handleDistrictClick(district.id)}
+                onMouseEnter={() => handleDistrictHover(district.id)}
+                onMouseLeave={() => handleDistrictHover(null)}
+                style={{ cursor: onDistrictClick ? 'pointer' : onDistrictHover ? 'pointer' : 'default' }}
+              />
+            );
+          })}
         </svg>
         
         {/* Zoom controls */}

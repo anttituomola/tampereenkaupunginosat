@@ -13,3 +13,5 @@ export interface GameState {
   recentDistricts: string[];
 }
 
+export type GameMode = 'quiz' | 'view' | 'locate';
+

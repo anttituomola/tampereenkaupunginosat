@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import type { District } from './types';
 import { Game } from './components/Game';
+import { ViewMode } from './components/ViewMode';
+import { LocateMode } from './components/LocateMode';
+import { About } from './components/About';
+import { Navigation } from './components/Navigation';
 import './App.css';
 
 function App() {
@@ -30,8 +35,8 @@ function App() {
   if (loading) {
     return (
       <div className="app-loading">
-        <h1>Tampere District Quiz</h1>
-        <p>Loading districts...</p>
+        <h1>Tampereen kaupunginosavisa</h1>
+        <p>Ladataan kaupunginosia...</p>
       </div>
     );
   }
@@ -39,9 +44,9 @@ function App() {
   if (error) {
     return (
       <div className="app-error">
-        <h1>Tampere District Quiz</h1>
-        <p>Error: {error}</p>
-        <p>Please make sure tampere-districts.json exists in the public folder.</p>
+        <h1>Tampereen kaupunginosavisa</h1>
+        <p>Virhe: {error}</p>
+        <p>Varmista, että tampere-districts.json on public-kansiossa.</p>
       </div>
     );
   }
@@ -49,22 +54,30 @@ function App() {
   if (districts.length === 0) {
     return (
       <div className="app-error">
-        <h1>Tampere District Quiz</h1>
-        <p>No districts data available.</p>
+        <h1>Tampereen kaupunginosavisa</h1>
+        <p>Kaupunginosatietoja ei saatavilla.</p>
       </div>
     );
   }
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <h1>Tampereen kaupunginosavisa</h1>
-        <p>Tunnetko tampereen kaupunginosat?</p>
-      </header>
-      <main className="app-main">
-        <Game districts={districts} />
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className="app">
+        <header className="app-header">
+          <h1>Tampereen kaupunginosavisa</h1>
+          <p>Tunnetko tampereen kaupunginosat?</p>
+          <Navigation />
+        </header>
+        <main className="app-main">
+          <Routes>
+            <Route path="/" element={<Game districts={districts} />} />
+            <Route path="/view" element={<ViewMode districts={districts} />} />
+            <Route path="/locate" element={<LocateMode districts={districts} />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

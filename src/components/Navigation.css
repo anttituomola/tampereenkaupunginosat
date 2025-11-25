@@ -1,0 +1,137 @@
+.navigation {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+@media (max-width: 640px) {
+  .navigation {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-top: 0.75rem;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.hamburger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.hamburger-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  min-width: 150px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.nav-menu.open {
+  max-height: 400px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-link {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.nav-link:last-child {
+  border-bottom: none;
+}
+
+.nav-link:hover {
+  background-color: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.nav-link.active {
+  background-color: rgba(102, 126, 234, 0.15);
+  color: #667eea;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .hamburger-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hamburger-line {
+    width: 20px;
+    height: 2.5px;
+  }
+
+  .nav-menu {
+    right: 0.5rem;
+    min-width: 140px;
+  }
+
+  .nav-link {
+    padding: 0.65rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 641px) {
+  .nav-menu {
+    right: 0;
+  }
+}
+

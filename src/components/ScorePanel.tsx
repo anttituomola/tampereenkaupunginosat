@@ -11,15 +11,15 @@ export function ScorePanel({ score, total }: ScorePanelProps) {
   return (
     <div className="score-panel">
       <div className="score-item">
-        <span className="score-label">Score:</span>
+        <span className="score-label">Pisteet:</span>
         <span className="score-value">{score}</span>
       </div>
       <div className="score-item">
-        <span className="score-label">Questions:</span>
+        <span className="score-label">Kysymykset:</span>
         <span className="score-value">{total}</span>
       </div>
       <div className="score-item">
-        <span className="score-label">Accuracy:</span>
+        <span className="score-label">Tarkkuus:</span>
         <span className="score-value">{percentage}%</span>
       </div>
     </div>
