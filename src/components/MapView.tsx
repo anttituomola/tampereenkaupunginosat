@@ -372,9 +372,6 @@ export function MapView({
     }
   }, [onDistrictHover]);
 
-  // Determine which district should be highlighted
-  const effectiveHighlightedId = selectedDistrictId || highlightedDistrictId;
-
   return (
     <div className="map-container">
       <div className="map-wrapper">
