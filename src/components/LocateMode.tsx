@@ -20,6 +20,7 @@ export function LocateMode({ districts }: LocateModeProps) {
   const [selectedDistrictId, setSelectedDistrictId] = useState<string | null>(null);
   const [showCelebration, setShowCelebration] = useState(false);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  const [forceFullViewCounter, setForceFullViewCounter] = useState(0);
 
   const generateQuestion = useCallback(() => {
     if (districts.length === 0) return;
@@ -62,6 +63,8 @@ export function LocateMode({ districts }: LocateModeProps) {
       setShowCelebration(true);
     } else {
       setShowCorrectAnswer(true);
+      // Trigger zoom out to full view before showing correct answer
+      setForceFullViewCounter(prev => prev + 1);
     }
 
     // Add to recent districts
@@ -96,6 +99,7 @@ export function LocateMode({ districts }: LocateModeProps) {
             onDistrictClick={handleDistrictClick}
             selectedDistrictId={showCorrectAnswer ? currentDistrict.id : (showCelebration ? selectedDistrictId : null)}
             wrongDistrictId={showCorrectAnswer && selectedDistrictId !== currentDistrict.id ? selectedDistrictId : null}
+            forceFullView={forceFullViewCounter}
           />
           {showCelebration && (
             <div className="celebration-message">

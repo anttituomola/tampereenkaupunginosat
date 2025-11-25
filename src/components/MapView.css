@@ -139,10 +139,11 @@
 }
 
 .district-path.wrong {
-  fill: rgba(220, 53, 69, 0.7);
-  stroke: #dc3545;
-  stroke-width: 3;
+  fill: rgba(255, 0, 0, 0.85);
+  stroke: #ff0000;
+  stroke-width: 4;
   animation: wrongPulse 0.5s ease-in-out;
+  filter: drop-shadow(0 0 4px rgba(255, 0, 0, 0.8));
 }
 
 @keyframes wrongPulse {

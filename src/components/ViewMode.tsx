@@ -9,7 +9,6 @@ interface ViewModeProps {
 
 export function ViewMode({ districts }: ViewModeProps) {
   const [hoveredDistrict, setHoveredDistrict] = useState<District | null>(null);
-  const [clickedDistrict, setClickedDistrict] = useState<District | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState<{ x: number; y: number } | null>(null);
   const mapWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -24,15 +23,8 @@ export function ViewMode({ districts }: ViewModeProps) {
   }, [districts]);
 
   const handleDistrictClick = useCallback((districtId: string) => {
-    const district = districts.find(d => d.id === districtId);
-    if (district) {
-      setClickedDistrict(district);
-      // On mobile, show clicked district name briefly
-      setTimeout(() => {
-        setClickedDistrict(null);
-      }, 2000);
-    }
-  }, [districts]);
+    // Click handler kept for MapView compatibility, but no toast shown
+  }, []);
 
   const handleMapMouseMove = useCallback((e: React.MouseEvent) => {
     if (hoveredDistrict && mapWrapperRef.current) {
@@ -71,11 +63,6 @@ export function ViewMode({ districts }: ViewModeProps) {
             }}
           >
             {hoveredDistrict.name}
-          </div>
-        )}
-        {clickedDistrict && (
-          <div className="district-clicked-message">
-            {clickedDistrict.name}
           </div>
         )}
         </div>

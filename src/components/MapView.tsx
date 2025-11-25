@@ -9,6 +9,7 @@ interface MapViewProps {
   onDistrictHover?: (districtId: string | null) => void;
   selectedDistrictId?: string | null;
   wrongDistrictId?: string | null;
+  forceFullView?: number;
 }
 
 // SVG dimensions matching the basemap PNG (map_tampere.png)
@@ -63,7 +64,8 @@ export function MapView({
   onDistrictClick,
   onDistrictHover,
   selectedDistrictId,
-  wrongDistrictId
+  wrongDistrictId,
+  forceFullView
 }: MapViewProps) {
   const [manualZoom, setManualZoom] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
   const [animatedViewBox, setAnimatedViewBox] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
@@ -252,6 +254,15 @@ export function MapView({
       setAnimatedViewBox(fullViewBox);
     }
   }, [highlightedDistrictId, fullViewBox, autoViewBox, animateViewBox]);
+
+  // Force zoom to full view when forceFullView prop changes
+  useEffect(() => {
+    if (forceFullView) {
+      const currentBox = manualZoom || animatedViewBox || autoViewBox;
+      animateViewBox(currentBox, fullViewBox, 800);
+      setManualZoom(null);
+    }
+  }, [forceFullView, fullViewBox, animateViewBox]);
 
   // Use manual zoom if set, otherwise use animated viewBox or auto zoom
   const currentViewBox = manualZoom || animatedViewBox || autoViewBox;
