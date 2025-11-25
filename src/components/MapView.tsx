@@ -282,8 +282,7 @@ export function MapView({
     const newWidth = currentViewBox.width * (1 - ZOOM_STEP);
     const newHeight = currentViewBox.height * (1 - ZOOM_STEP);
     
-    // Don't zoom in too much
-    if (newWidth < SVG_WIDTH * 0.1 || newHeight < SVG_HEIGHT * 0.1) return;
+    // Allow unlimited zoom in (removed lower limit)
 
     // Zoom around the highlighted district center (or current center)
     let newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, zoomCenter.x - newWidth / 2));
@@ -420,9 +419,9 @@ export function MapView({
       const newWidth = startViewBox.width * scale;
       const newHeight = startViewBox.height * scale;
       
-      // Limit zoom levels
-      if (newWidth < SVG_WIDTH * 0.1 || newHeight < SVG_HEIGHT * 0.1) return;
+      // Limit zoom out (don't zoom beyond full view)
       if (newWidth > SVG_WIDTH || newHeight > SVG_HEIGHT) return;
+      // Allow unlimited zoom in (removed lower limit)
       
       // Get current pinch center in screen coordinates
       const currentCenterX = (touch1.clientX + touch2.clientX) / 2;
