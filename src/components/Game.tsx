@@ -111,7 +111,7 @@ export function Game({ districts }: GameProps) {
       </div>
       <ScorePanel score={score} total={totalQuestions} />
       {isWaiting && (
-        <div className="next-round-indicator">Next question coming soon...</div>
+        <div className="next-round-indicator">Seuraava kysymys kohta...</div>
       )}
     </div>
   );

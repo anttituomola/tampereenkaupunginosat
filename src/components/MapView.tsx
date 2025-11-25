@@ -382,6 +382,7 @@ export function MapView({
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     if (e.touches.length === 2) {
       e.preventDefault();
+      e.stopPropagation();
       const touch1 = e.touches[0];
       const touch2 = e.touches[1];
       const distance = getTouchDistance(touch1, touch2);
@@ -402,6 +403,7 @@ export function MapView({
   const handleTouchMove = useCallback((e: React.TouchEvent) => {
     if (e.touches.length === 2 && pinchStartRef.current && mapWrapperRef.current) {
       e.preventDefault();
+      e.stopPropagation();
       const touch1 = e.touches[0];
       const touch2 = e.touches[1];
       const currentDistance = getTouchDistance(touch1, touch2);
@@ -429,7 +431,11 @@ export function MapView({
     }
   }, [getTouchDistance, screenToSvg]);
 
-  const handleTouchEnd = useCallback(() => {
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length < 2 && pinchStartRef.current) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     pinchStartRef.current = null;
   }, []);
 
