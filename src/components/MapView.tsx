@@ -7,9 +7,9 @@ interface MapViewProps {
   highlightedDistrictId: string | null;
 }
 
-// SVG dimensions matching the basemap PNG (higher resolution)
-const SVG_WIDTH = 3153;
-const SVG_HEIGHT = 2709;
+// SVG dimensions matching the basemap PNG (map_tampere.png)
+const SVG_WIDTH = 4204;
+const SVG_HEIGHT = 3613;
 const ZOOM_PADDING = 300; // Padding around highlighted district
 const MIN_ZOOM_RATIO = 0.5; // Minimum zoom area (50% of map)
 const ZOOM_STEP = 0.2; // Zoom step (20% per click)
@@ -359,7 +359,7 @@ export function MapView({ districts, highlightedDistrictId }: MapViewProps) {
         >
           {/* Basemap PNG as background */}
           <image
-            href="/basemap_tampere.png"
+            href="/map_tampere.png"
             x="0"
             y="0"
             width={SVG_WIDTH}

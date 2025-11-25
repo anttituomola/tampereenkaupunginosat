@@ -5,19 +5,16 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// SVG dimensions from your basemap PNG (higher resolution)
-const SVG_WIDTH = 3153;
-const SVG_HEIGHT = 2709;
+// SVG dimensions from map_tampere.png
+const SVG_WIDTH = 4204;
+const SVG_HEIGHT = 3613;
 
-// Extent from map.svg.pgw world file
-// Top-left corner: (24473349.57141841202974319, 6846085.21167887561023235)
-// Pixel size: 11.45642816537462494 meters per pixel
-// Bottom-right: top-left + (width * pixel_size, -height * pixel_size)
-const PIXEL_SIZE = 11.45642816537462494;
-const MIN_X = 24473349.57141841202974319;
-const MAX_X = MIN_X + (SVG_WIDTH * PIXEL_SIZE);
-const MIN_Y = 6846085.21167887561023235 - (SVG_HEIGHT * PIXEL_SIZE);
-const MAX_Y = 6846085.21167887561023235;
+// Extent from QGIS export dialog (EPSG:3067)
+// These are the actual map bounds from the export
+const MIN_X = 303928.9450;  // West
+const MAX_X = 359882.4255;   // East
+const MIN_Y = 6813050.8309;  // South
+const MAX_Y = 6861129.7879;  // North
 
 console.log(`SVG dimensions: ${SVG_WIDTH} x ${SVG_HEIGHT}`);
 console.log(`EPSG:3067 extent:`);
@@ -26,9 +23,12 @@ console.log(`  MAX_X: ${MAX_X}`);
 console.log(`  MIN_Y: ${MIN_Y}`);
 console.log(`  MAX_Y: ${MAX_Y}`);
 
-// Load GeoJSON
-const geojsonPath = path.join(__dirname, '..', 'KH_TILASTO.json');
+// Load GeoJSON - now in EPSG:3067, matching the map
+const geojsonPath = path.join(__dirname, '..', 'tilastoalueet_3067.geojson');
 const geojson = JSON.parse(fs.readFileSync(geojsonPath, 'utf8'));
+
+// GeoJSON and map are both in EPSG:3067 (ETRS-TM35FIN)
+// No transformation needed - use coordinates directly
 
 /**
  * Convert EPSG:3067 coordinate to SVG coordinate

@@ -58,8 +58,8 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Tampere District Quiz</h1>
-        <p>Can you identify the highlighted district?</p>
+        <h1>Tampereen kaupunginosavisa</h1>
+        <p>Tunnetko tampereen kaupunginosat?</p>
       </header>
       <main className="app-main">
         <Game districts={districts} />
