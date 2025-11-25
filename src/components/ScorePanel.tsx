@@ -26,3 +26,4 @@ export function ScorePanel({ score, total }: ScorePanelProps) {
   );
 }
 
+

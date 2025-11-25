@@ -8,9 +8,11 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "preprocess": "node scripts/preprocess-geojson.js"
+    "preprocess": "node scripts/preprocess-geojson.js",
+    "prepare-districts": "node scripts/prepare-districts.js"
   },
   "dependencies": {
+    "proj4": "^2.20.2",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

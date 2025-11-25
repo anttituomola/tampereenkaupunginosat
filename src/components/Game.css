@@ -3,8 +3,31 @@
   flex-direction: column;
   gap: 1.5rem;
   padding: 1rem;
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
+}
+
+.game-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .game-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  
+  .game-content > :first-child {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .game-content > :last-child {
+    flex: 0 0 400px;
+  }
 }
 
 .game-loading {
@@ -37,6 +60,8 @@
   .game-container {
     padding: 0.5rem;
     gap: 1rem;
+    flex-direction: column;
   }
 }
+
 

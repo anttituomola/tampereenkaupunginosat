@@ -97,17 +97,19 @@ export function Game({ districts }: GameProps) {
 
   return (
     <div className="game-container">
+      <div className="game-content">
+        <MapView
+          districts={districts}
+          highlightedDistrictId={currentDistrict.id}
+        />
+        <OptionsPanel
+          options={options}
+          correctAnswer={currentDistrict.name}
+          onSelect={handleAnswer}
+          disabled={isWaiting}
+        />
+      </div>
       <ScorePanel score={score} total={totalQuestions} />
-      <MapView
-        districts={districts}
-        highlightedDistrictId={currentDistrict.id}
-      />
-      <OptionsPanel
-        options={options}
-        correctAnswer={currentDistrict.name}
-        onSelect={handleAnswer}
-        disabled={isWaiting}
-      />
       {isWaiting && (
         <div className="next-round-indicator">Next question coming soon...</div>
       )}
