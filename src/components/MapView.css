@@ -1,0 +1,42 @@
+.map-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.district-path {
+  fill: #e0e0e0;
+  stroke: #ffffff;
+  stroke-width: 0.5;
+  transition: fill 0.2s ease;
+}
+
+.district-path:hover {
+  fill: #d0d0d0;
+}
+
+.district-path.highlighted {
+  fill: #4a90e2;
+  stroke: #2c5aa0;
+  stroke-width: 1;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
