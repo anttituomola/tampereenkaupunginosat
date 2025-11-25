@@ -430,18 +430,29 @@ export function MapView({
       
       const rect = mapWrapperRef.current.getBoundingClientRect();
       
-      // Calculate what SVG point is currently under the pinch center
-      // This is the point we want to keep fixed during zoom
-      const currentSvgPoint = screenToSvg(currentCenterX, currentCenterY, startViewBox, mapWrapperRef.current);
+      // Calculate pan delta (movement of fingers) in screen coordinates
+      const panDeltaX = currentCenterX - pinchStartRef.current.screenCenter.x;
+      const panDeltaY = currentCenterY - pinchStartRef.current.screenCenter.y;
       
-      // Calculate the relative position of the pinch center within the viewport (0 to 1)
-      const relativeX = (currentCenterX - rect.left) / rect.width;
-      const relativeY = (currentCenterY - rect.top) / rect.height;
+      // Convert pan delta from screen pixels to SVG coordinates using the NEW viewBox size
+      // Moving fingers right should move map left, so we invert
+      const svgPanDeltaX = -(panDeltaX / rect.width) * newWidth;
+      const svgPanDeltaY = -(panDeltaY / rect.height) * newHeight;
       
-      // Calculate new viewBox position so the same SVG point stays under the pinch center
-      // Formula: newX = svgPoint.x - (relativeX * newWidth)
-      let newX = currentSvgPoint.x - (relativeX * newWidth);
-      let newY = currentSvgPoint.y - (relativeY * newHeight);
+      // Calculate what SVG point was under the initial pinch center
+      const initialSvgPoint = pinchStartRef.current.center;
+      
+      // Calculate the relative position of the initial pinch center within the viewport (0 to 1)
+      const initialScreenX = pinchStartRef.current.screenCenter.x;
+      const initialScreenY = pinchStartRef.current.screenCenter.y;
+      const relativeX = (initialScreenX - rect.left) / rect.width;
+      const relativeY = (initialScreenY - rect.top) / rect.height;
+      
+      // Calculate new viewBox position:
+      // 1. Start from keeping the initial SVG point fixed (zoom centering)
+      // 2. Apply pan delta (finger movement)
+      let newX = initialSvgPoint.x - (relativeX * newWidth) + svgPanDeltaX;
+      let newY = initialSvgPoint.y - (relativeY * newHeight) + svgPanDeltaY;
       
       // Clamp to SVG bounds
       newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, newX));

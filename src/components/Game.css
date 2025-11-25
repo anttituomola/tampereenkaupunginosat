@@ -9,6 +9,7 @@
   min-height: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  min-width: 0;
 }
 
 .game-content {
@@ -58,6 +59,8 @@
   overflow-wrap: break-word;
   max-width: 100%;
   box-sizing: border-box;
+  width: 100%;
+  margin: 0;
 }
 
 @keyframes fadeInOut {
@@ -77,9 +80,12 @@
   }
 
   .next-round-indicator {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.8125rem;
+    padding: 0.5rem 0.25rem;
+    font-size: 0.75rem;
     line-height: 1.4;
+    width: 100%;
+    margin: 0;
+    white-space: normal;
   }
 }
 
