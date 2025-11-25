@@ -73,7 +73,12 @@ export function MapView({
   const startTimeRef = useRef<number | null>(null);
   
   // Pinch zoom state
-  const pinchStartRef = useRef<{ distance: number; center: { x: number; y: number }; viewBox: { x: number; y: number; width: number; height: number } } | null>(null);
+  const pinchStartRef = useRef<{ 
+    distance: number; 
+    center: { x: number; y: number }; 
+    screenCenter: { x: number; y: number };
+    viewBox: { x: number; y: number; width: number; height: number } 
+  } | null>(null);
   const mapWrapperRef = useRef<HTMLDivElement>(null);
 
   // Full viewBox (initial state)
@@ -394,6 +399,7 @@ export function MapView({
         pinchStartRef.current = {
           distance,
           center: svgCenter,
+          screenCenter: { x: centerX, y: centerY },
           viewBox: { ...currentViewBox }
         };
       }
@@ -418,18 +424,27 @@ export function MapView({
       if (newWidth < SVG_WIDTH * 0.1 || newHeight < SVG_HEIGHT * 0.1) return;
       if (newWidth > SVG_WIDTH || newHeight > SVG_HEIGHT) return;
       
-      // Get current pinch center in SVG coordinates
-      const centerX = (touch1.clientX + touch2.clientX) / 2;
-      const centerY = (touch1.clientY + touch2.clientY) / 2;
-      const pinchCenter = screenToSvg(centerX, centerY, startViewBox, mapWrapperRef.current);
+      // Get current pinch center in screen coordinates
+      const currentCenterX = (touch1.clientX + touch2.clientX) / 2;
+      const currentCenterY = (touch1.clientY + touch2.clientY) / 2;
       
-      // Calculate new viewBox centered on the pinch center
-      const newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, pinchCenter.x - newWidth / 2));
-      const newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, pinchCenter.y - newHeight / 2));
+      // Calculate pan offset (movement of the center point)
+      const panDeltaX = currentCenterX - pinchStartRef.current.screenCenter.x;
+      const panDeltaY = currentCenterY - pinchStartRef.current.screenCenter.y;
+      
+      // Convert pan delta from screen pixels to SVG coordinates
+      // Note: moving fingers right should move map left, so we invert
+      const rect = mapWrapperRef.current.getBoundingClientRect();
+      const svgDeltaX = -(panDeltaX / rect.width) * newWidth;
+      const svgDeltaY = -(panDeltaY / rect.height) * newHeight;
+      
+      // Start from the initial viewBox position and apply the pan delta
+      const newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, startViewBox.x + svgDeltaX));
+      const newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, startViewBox.y + svgDeltaY));
       
       setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
     }
-  }, [getTouchDistance, screenToSvg]);
+  }, [getTouchDistance]);
 
   const handleTouchEnd = useCallback((e: React.TouchEvent) => {
     if (e.touches.length < 2 && pinchStartRef.current) {

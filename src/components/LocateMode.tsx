@@ -105,13 +105,6 @@ export function LocateMode({ districts }: LocateModeProps) {
               </div>
             </div>
           )}
-          {showCorrectAnswer && selectedDistrictId !== currentDistrict.id && (
-            <div className="correct-answer-message">
-              <div className="correct-answer-content">
-                <span>Oikea vastaus: {currentDistrict.name}</span>
-              </div>
-            </div>
-          )}
         </div>
       </div>
       <ScorePanel score={score} total={totalQuestions} />
