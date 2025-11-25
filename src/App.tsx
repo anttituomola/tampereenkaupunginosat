@@ -5,6 +5,7 @@ import { Game } from './components/Game';
 import { ViewMode } from './components/ViewMode';
 import { LocateMode } from './components/LocateMode';
 import { About } from './components/About';
+import { NotFound } from './components/NotFound';
 import { Navigation } from './components/Navigation';
 import './App.css';
 
@@ -74,6 +75,7 @@ function App() {
             <Route path="/view" element={<ViewMode districts={districts} />} />
             <Route path="/locate" element={<LocateMode districts={districts} />} />
             <Route path="/about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
       </div>
