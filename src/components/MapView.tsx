@@ -428,23 +428,28 @@ export function MapView({
       const currentCenterX = (touch1.clientX + touch2.clientX) / 2;
       const currentCenterY = (touch1.clientY + touch2.clientY) / 2;
       
-      // Calculate pan offset (movement of the center point)
-      const panDeltaX = currentCenterX - pinchStartRef.current.screenCenter.x;
-      const panDeltaY = currentCenterY - pinchStartRef.current.screenCenter.y;
-      
-      // Convert pan delta from screen pixels to SVG coordinates
-      // Note: moving fingers right should move map left, so we invert
       const rect = mapWrapperRef.current.getBoundingClientRect();
-      const svgDeltaX = -(panDeltaX / rect.width) * newWidth;
-      const svgDeltaY = -(panDeltaY / rect.height) * newHeight;
       
-      // Start from the initial viewBox position and apply the pan delta
-      const newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, startViewBox.x + svgDeltaX));
-      const newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, startViewBox.y + svgDeltaY));
+      // Calculate what SVG point is currently under the pinch center
+      // This is the point we want to keep fixed during zoom
+      const currentSvgPoint = screenToSvg(currentCenterX, currentCenterY, startViewBox, mapWrapperRef.current);
+      
+      // Calculate the relative position of the pinch center within the viewport (0 to 1)
+      const relativeX = (currentCenterX - rect.left) / rect.width;
+      const relativeY = (currentCenterY - rect.top) / rect.height;
+      
+      // Calculate new viewBox position so the same SVG point stays under the pinch center
+      // Formula: newX = svgPoint.x - (relativeX * newWidth)
+      let newX = currentSvgPoint.x - (relativeX * newWidth);
+      let newY = currentSvgPoint.y - (relativeY * newHeight);
+      
+      // Clamp to SVG bounds
+      newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, newX));
+      newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, newY));
       
       setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
     }
-  }, [getTouchDistance]);
+  }, [getTouchDistance, screenToSvg]);
 
   const handleTouchEnd = useCallback((e: React.TouchEvent) => {
     if (e.touches.length < 2 && pinchStartRef.current) {
@@ -466,10 +471,13 @@ export function MapView({
     }
   }, [onDistrictHover]);
 
+  // Determine if we're in locate mode (has click handler but no highlight)
+  const isLocateMode = onDistrictClick !== undefined && !highlightedDistrictId;
+
   return (
     <div className="map-container">
       <div 
-        className="map-wrapper"
+        className={`map-wrapper ${isLocateMode ? 'locate-mode' : ''}`}
         ref={mapWrapperRef}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
