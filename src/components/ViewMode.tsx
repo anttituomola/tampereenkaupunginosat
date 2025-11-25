@@ -22,7 +22,7 @@ export function ViewMode({ districts }: ViewModeProps) {
     }
   }, [districts]);
 
-  const handleDistrictClick = useCallback((districtId: string) => {
+  const handleDistrictClick = useCallback((_districtId: string) => {
     // Click handler kept for MapView compatibility, but no toast shown
   }, []);
 
