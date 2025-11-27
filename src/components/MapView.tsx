@@ -480,6 +480,62 @@ export function MapView({
     pinchStartRef.current = null;
   }, []);
 
+  // Handle mouse wheel zoom
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    // Don't zoom if scrolling on zoom controls
+    if ((e.target as HTMLElement).closest('.zoom-controls')) {
+      return;
+    }
+    
+    e.preventDefault();
+    
+    if (!mapWrapperRef.current) return;
+    
+    const rect = mapWrapperRef.current.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    
+    // Calculate the SVG point under the mouse cursor
+    const svgPoint = screenToSvg(e.clientX, e.clientY, currentViewBox, mapWrapperRef.current);
+    
+    // Determine zoom direction and factor
+    const zoomFactor = e.deltaY > 0 ? 1.1 : 0.9; // Zoom out on scroll down, zoom in on scroll up
+    const newWidth = currentViewBox.width * zoomFactor;
+    const newHeight = currentViewBox.height * zoomFactor;
+    
+    // Limit zoom out (don't zoom beyond full view)
+    if (newWidth > SVG_WIDTH || newHeight > SVG_HEIGHT) {
+      if (currentViewBox.width >= SVG_WIDTH && currentViewBox.height >= SVG_HEIGHT) {
+        return; // Already at full view
+      }
+      // Clamp to full view
+      const clampedWidth = Math.min(newWidth, SVG_WIDTH);
+      const clampedHeight = Math.min(newHeight, SVG_HEIGHT);
+      
+      setManualZoom({
+        x: 0,
+        y: 0,
+        width: clampedWidth,
+        height: clampedHeight
+      });
+      return;
+    }
+    
+    // Calculate relative position of mouse within the viewport (0 to 1)
+    const relativeX = mouseX / rect.width;
+    const relativeY = mouseY / rect.height;
+    
+    // Calculate new viewBox position to keep the point under mouse fixed
+    let newX = svgPoint.x - (relativeX * newWidth);
+    let newY = svgPoint.y - (relativeY * newHeight);
+    
+    // Clamp to SVG bounds
+    newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, newX));
+    newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, newY));
+    
+    setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
+  }, [currentViewBox, screenToSvg]);
+
   const handleDistrictClick = useCallback((districtId: string) => {
     if (onDistrictClick) {
       onDistrictClick(districtId);
@@ -503,6 +559,7 @@ export function MapView({
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onWheel={handleWheel}
       >
         <svg
           viewBox={viewBoxString}
