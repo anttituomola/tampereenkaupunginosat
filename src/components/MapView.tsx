@@ -12,9 +12,9 @@ interface MapViewProps {
   forceFullView?: number;
 }
 
-// SVG dimensions matching the basemap PNG (map_tampere.png)
-const SVG_WIDTH = 4204;
-const SVG_HEIGHT = 3613;
+// SVG dimensions matching the basemap PNG (tampere_fixed_roads.png)
+const SVG_WIDTH = 4942;
+const SVG_HEIGHT = 5113;
 const ZOOM_PADDING = 300; // Padding around highlighted district
 const MIN_ZOOM_RATIO = 0.5; // Minimum zoom area (50% of map)
 const ZOOM_STEP = 0.2; // Zoom step (20% per click)
@@ -38,7 +38,7 @@ function getPathBounds(pathString: string) {
     if (match) {
       const x = parseFloat(match[1]);
       const y = parseFloat(match[2]);
-      
+
       // Only process valid numbers
       if (!isNaN(x) && !isNaN(y) && isFinite(x) && isFinite(y)) {
         minX = Math.min(minX, x);
@@ -58,9 +58,9 @@ function getPathBounds(pathString: string) {
   return { minX, minY, maxX, maxY };
 }
 
-export function MapView({ 
-  districts, 
-  highlightedDistrictId, 
+export function MapView({
+  districts,
+  highlightedDistrictId,
   onDistrictClick,
   onDistrictHover,
   selectedDistrictId,
@@ -73,13 +73,13 @@ export function MapView({
   const startViewBoxRef = useRef<{ x: number; y: number; width: number; height: number } | null>(null);
   const targetViewBoxRef = useRef<{ x: number; y: number; width: number; height: number } | null>(null);
   const startTimeRef = useRef<number | null>(null);
-  
+
   // Pinch zoom state
-  const pinchStartRef = useRef<{ 
-    distance: number; 
-    center: { x: number; y: number }; 
+  const pinchStartRef = useRef<{
+    distance: number;
+    center: { x: number; y: number };
     screenCenter: { x: number; y: number };
-    viewBox: { x: number; y: number; width: number; height: number } 
+    viewBox: { x: number; y: number; width: number; height: number }
   } | null>(null);
   const mapWrapperRef = useRef<HTMLDivElement>(null);
 
@@ -234,11 +234,11 @@ export function MapView({
   useEffect(() => {
     if (highlightedDistrictId) {
       setManualZoom(null);
-      
+
       // Start with full view
       const startBox = fullViewBox;
       setAnimatedViewBox(startBox);
-      
+
       // After 1 second, animate to the highlighted district
       const timer = setTimeout(() => {
         animateViewBox(startBox, autoViewBox, 1000);
@@ -292,13 +292,13 @@ export function MapView({
   const handleZoomIn = useCallback(() => {
     const newWidth = currentViewBox.width * (1 - ZOOM_STEP);
     const newHeight = currentViewBox.height * (1 - ZOOM_STEP);
-    
+
     // Allow unlimited zoom in (removed lower limit)
 
     // Zoom around the highlighted district center (or current center)
     let newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, zoomCenter.x - newWidth / 2));
     let newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, zoomCenter.y - newHeight / 2));
-    
+
     // If a district is highlighted, ensure it stays visible
     if (highlightedDistrictId) {
       const highlightedDistrict = districts.find(d => d.id === highlightedDistrictId);
@@ -310,14 +310,14 @@ export function MapView({
           const clampedMinY = Math.max(0, Math.min(bounds.minY, SVG_HEIGHT));
           const clampedMaxX = Math.max(0, Math.min(bounds.maxX, SVG_WIDTH));
           const clampedMaxY = Math.max(0, Math.min(bounds.maxY, SVG_HEIGHT));
-          
+
           // Adjust viewBox to ensure district is visible
           if (clampedMinX < newX) {
             newX = Math.max(0, clampedMinX - ZOOM_PADDING);
           } else if (clampedMaxX > newX + newWidth) {
             newX = Math.min(SVG_WIDTH - newWidth, clampedMaxX + ZOOM_PADDING - newWidth);
           }
-          
+
           if (clampedMinY < newY) {
             newY = Math.max(0, clampedMinY - ZOOM_PADDING);
           } else if (clampedMaxY > newY + newHeight) {
@@ -326,14 +326,14 @@ export function MapView({
         }
       }
     }
-    
+
     setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
   }, [currentViewBox, zoomCenter, highlightedDistrictId, districts]);
 
   const handleZoomOut = useCallback(() => {
     const newWidth = currentViewBox.width * (1 + ZOOM_STEP);
     const newHeight = currentViewBox.height * (1 + ZOOM_STEP);
-    
+
     // Don't zoom out beyond full view
     if (newWidth > SVG_WIDTH || newHeight > SVG_HEIGHT) {
       setManualZoom(null);
@@ -343,7 +343,7 @@ export function MapView({
     // Zoom around the highlighted district center (or current center)
     let newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, zoomCenter.x - newWidth / 2));
     let newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, zoomCenter.y - newHeight / 2));
-    
+
     // If a district is highlighted, ensure it stays visible
     if (highlightedDistrictId) {
       const highlightedDistrict = districts.find(d => d.id === highlightedDistrictId);
@@ -355,14 +355,14 @@ export function MapView({
           const clampedMinY = Math.max(0, Math.min(bounds.minY, SVG_HEIGHT));
           const clampedMaxX = Math.max(0, Math.min(bounds.maxX, SVG_WIDTH));
           const clampedMaxY = Math.max(0, Math.min(bounds.maxY, SVG_HEIGHT));
-          
+
           // Adjust viewBox to ensure district is visible
           if (clampedMinX < newX) {
             newX = Math.max(0, clampedMinX - ZOOM_PADDING);
           } else if (clampedMaxX > newX + newWidth) {
             newX = Math.min(SVG_WIDTH - newWidth, clampedMaxX + ZOOM_PADDING - newWidth);
           }
-          
+
           if (clampedMinY < newY) {
             newY = Math.max(0, clampedMinY - ZOOM_PADDING);
           } else if (clampedMaxY > newY + newHeight) {
@@ -371,7 +371,7 @@ export function MapView({
         }
       }
     }
-    
+
     setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
   }, [currentViewBox, zoomCenter, highlightedDistrictId, districts]);
 
@@ -403,7 +403,7 @@ export function MapView({
       const distance = getTouchDistance(touch1, touch2);
       const centerX = (touch1.clientX + touch2.clientX) / 2;
       const centerY = (touch1.clientY + touch2.clientY) / 2;
-      
+
       if (mapWrapperRef.current) {
         const svgCenter = screenToSvg(centerX, centerY, currentViewBox, mapWrapperRef.current);
         pinchStartRef.current = {
@@ -425,49 +425,49 @@ export function MapView({
       const currentDistance = getTouchDistance(touch1, touch2);
       // When fingers move apart (distance increases), zoom in (decrease viewBox)
       const scale = pinchStartRef.current.distance / currentDistance;
-      
+
       const startViewBox = pinchStartRef.current.viewBox;
       const newWidth = startViewBox.width * scale;
       const newHeight = startViewBox.height * scale;
-      
+
       // Limit zoom out (don't zoom beyond full view)
       if (newWidth > SVG_WIDTH || newHeight > SVG_HEIGHT) return;
       // Allow unlimited zoom in (removed lower limit)
-      
+
       // Get current pinch center in screen coordinates
       const currentCenterX = (touch1.clientX + touch2.clientX) / 2;
       const currentCenterY = (touch1.clientY + touch2.clientY) / 2;
-      
+
       const rect = mapWrapperRef.current.getBoundingClientRect();
-      
+
       // Calculate pan delta (movement of fingers) in screen coordinates
       const panDeltaX = currentCenterX - pinchStartRef.current.screenCenter.x;
       const panDeltaY = currentCenterY - pinchStartRef.current.screenCenter.y;
-      
+
       // Convert pan delta from screen pixels to SVG coordinates using the NEW viewBox size
       // Moving fingers right should move map left, so we invert
       const svgPanDeltaX = -(panDeltaX / rect.width) * newWidth;
       const svgPanDeltaY = -(panDeltaY / rect.height) * newHeight;
-      
+
       // Calculate what SVG point was under the initial pinch center
       const initialSvgPoint = pinchStartRef.current.center;
-      
+
       // Calculate the relative position of the initial pinch center within the viewport (0 to 1)
       const initialScreenX = pinchStartRef.current.screenCenter.x;
       const initialScreenY = pinchStartRef.current.screenCenter.y;
       const relativeX = (initialScreenX - rect.left) / rect.width;
       const relativeY = (initialScreenY - rect.top) / rect.height;
-      
+
       // Calculate new viewBox position:
       // 1. Start from keeping the initial SVG point fixed (zoom centering)
       // 2. Apply pan delta (finger movement)
       let newX = initialSvgPoint.x - (relativeX * newWidth) + svgPanDeltaX;
       let newY = initialSvgPoint.y - (relativeY * newHeight) + svgPanDeltaY;
-      
+
       // Clamp to SVG bounds
       newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, newX));
       newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, newY));
-      
+
       setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
     }
   }, [getTouchDistance, screenToSvg]);
@@ -486,23 +486,23 @@ export function MapView({
     if ((e.target as HTMLElement).closest('.zoom-controls')) {
       return;
     }
-    
+
     e.preventDefault();
-    
+
     if (!mapWrapperRef.current) return;
-    
+
     const rect = mapWrapperRef.current.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    
+
     // Calculate the SVG point under the mouse cursor
     const svgPoint = screenToSvg(e.clientX, e.clientY, currentViewBox, mapWrapperRef.current);
-    
+
     // Determine zoom direction and factor
     const zoomFactor = e.deltaY > 0 ? 1.1 : 0.9; // Zoom out on scroll down, zoom in on scroll up
     const newWidth = currentViewBox.width * zoomFactor;
     const newHeight = currentViewBox.height * zoomFactor;
-    
+
     // Limit zoom out (don't zoom beyond full view)
     if (newWidth > SVG_WIDTH || newHeight > SVG_HEIGHT) {
       if (currentViewBox.width >= SVG_WIDTH && currentViewBox.height >= SVG_HEIGHT) {
@@ -511,7 +511,7 @@ export function MapView({
       // Clamp to full view
       const clampedWidth = Math.min(newWidth, SVG_WIDTH);
       const clampedHeight = Math.min(newHeight, SVG_HEIGHT);
-      
+
       setManualZoom({
         x: 0,
         y: 0,
@@ -520,19 +520,19 @@ export function MapView({
       });
       return;
     }
-    
+
     // Calculate relative position of mouse within the viewport (0 to 1)
     const relativeX = mouseX / rect.width;
     const relativeY = mouseY / rect.height;
-    
+
     // Calculate new viewBox position to keep the point under mouse fixed
     let newX = svgPoint.x - (relativeX * newWidth);
     let newY = svgPoint.y - (relativeY * newHeight);
-    
+
     // Clamp to SVG bounds
     newX = Math.max(0, Math.min(SVG_WIDTH - newWidth, newX));
     newY = Math.max(0, Math.min(SVG_HEIGHT - newHeight, newY));
-    
+
     setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
   }, [currentViewBox, screenToSvg]);
 
@@ -553,7 +553,7 @@ export function MapView({
 
   return (
     <div className="map-container">
-      <div 
+      <div
         className={`map-wrapper ${isLocateMode ? 'locate-mode' : ''}`}
         ref={mapWrapperRef}
         onTouchStart={handleTouchStart}
@@ -568,20 +568,20 @@ export function MapView({
         >
           {/* Basemap PNG as background */}
           <image
-            href="/map_tampere.png"
+            href="/tampere_fixed_roads.png"
             x="0"
             y="0"
             width={SVG_WIDTH}
             height={SVG_HEIGHT}
             preserveAspectRatio="none"
           />
-          
+
           {/* Districts overlay */}
           {districts.map((district) => {
             const isHighlighted = district.id === highlightedDistrictId;
             const isSelected = district.id === selectedDistrictId;
             const isWrong = district.id === wrongDistrictId;
-            
+
             let className = 'district-path';
             if (isWrong) {
               className += ' wrong';
@@ -590,7 +590,7 @@ export function MapView({
             } else if (isSelected) {
               className += ' selected';
             }
-            
+
             return (
               <path
                 key={district.id}
@@ -604,7 +604,7 @@ export function MapView({
             );
           })}
         </svg>
-        
+
         {/* Zoom controls */}
         <div className="zoom-controls">
           <button

@@ -5,16 +5,16 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// SVG dimensions from map_tampere.png
-const SVG_WIDTH = 4204;
-const SVG_HEIGHT = 3613;
+// SVG dimensions from tampere_fixed_roads.png
+const SVG_WIDTH = 4942;
+const SVG_HEIGHT = 5113;
 
-// Extent from QGIS export dialog (EPSG:3067)
-// These are the actual map bounds from the export
-const MIN_X = 303928.9450;  // West
-const MAX_X = 359882.4255;   // East
-const MIN_Y = 6813050.8309;  // South
-const MAX_Y = 6861129.7879;  // North
+// Extent calculated from tampere_fixed_roads.pgw (EPSG:3067)
+// Calculated from .pgw file: pixel size 9.40356266693647314, origin (306675.79, 6858608.23)
+const MIN_X = 306675.79188133345;  // West
+const MAX_X = 353148.1985813335;   // East
+const MIN_Y = 6810527.817760644;   // South
+const MAX_Y = 6858608.23367669;    // North
 
 console.log(`SVG dimensions: ${SVG_WIDTH} x ${SVG_HEIGHT}`);
 console.log(`EPSG:3067 extent:`);
@@ -37,11 +37,11 @@ function projectToSVG(x, y) {
   // Normalize to 0-1 range
   const nx = (x - MIN_X) / (MAX_X - MIN_X);
   const ny = (y - MIN_Y) / (MAX_Y - MIN_Y);
-  
+
   // Map to SVG pixels and flip Y (SVG Y increases downward)
   const sx = nx * SVG_WIDTH;
   const sy = SVG_HEIGHT - (ny * SVG_HEIGHT);
-  
+
   return [sx, sy];
 }
 
@@ -50,7 +50,7 @@ function projectToSVG(x, y) {
  */
 function ringToPath(ring) {
   if (ring.length === 0) return '';
-  
+
   const pathParts = [];
   ring.forEach((coord, index) => {
     const [x, y] = projectToSVG(coord[0], coord[1]);
@@ -70,12 +70,12 @@ function ringToPath(ring) {
 function polygonToPath(polygon) {
   const [outerRing, ...innerRings] = polygon;
   let path = ringToPath(outerRing);
-  
+
   // Add inner rings (holes) if any
   innerRings.forEach(ring => {
     path += ' ' + ringToPath(ring);
   });
-  
+
   return path;
 }
 
@@ -97,16 +97,16 @@ function simplifyPath(pathString) {
 const districts = geojson.features.map(feature => {
   const geometry = feature.geometry;
   let pathString = '';
-  
+
   if (geometry.type === 'MultiPolygon') {
     pathString = multipolygonToPath(geometry.coordinates);
   } else if (geometry.type === 'Polygon') {
     pathString = polygonToPath(geometry.coordinates);
   }
-  
+
   // Simplify path
   pathString = simplifyPath(pathString);
-  
+
   return {
     id: feature.id || feature.properties?.TUNNUS || `district-${feature.properties?.NIMI}`,
     name: feature.properties?.NIMI || 'Unknown',
