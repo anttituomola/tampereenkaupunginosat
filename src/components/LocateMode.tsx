@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import type { District } from '../types';
 import { MapView } from './MapView';
 import { ScorePanel } from './ScorePanel';
@@ -9,7 +9,9 @@ interface LocateModeProps {
 }
 
 const RECENT_DISTRICTS_COUNT = 10;
-const NEXT_ROUND_DELAY = 2000; // 2 seconds
+const CORRECT_ROUND_DELAY = 2000; // 2 seconds
+const WRONG_ROUND_DELAY = 4500; // enough time for zoom out + zoom in
+const REVEAL_CORRECT_DELAY = 1300; // start zooming to correct district after zoom-out
 
 export function LocateMode({ districts }: LocateModeProps) {
   const [currentDistrict, setCurrentDistrict] = useState<District | null>(null);
@@ -21,7 +23,10 @@ export function LocateMode({ districts }: LocateModeProps) {
   const [previewDistrictId, setPreviewDistrictId] = useState<string | null>(null);
   const [showCelebration, setShowCelebration] = useState(false);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+  const [revealCorrectDistrict, setRevealCorrectDistrict] = useState(false);
   const [forceFullViewCounter, setForceFullViewCounter] = useState(0);
+  const revealTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const nextRoundTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const generateQuestion = useCallback(() => {
     if (districts.length === 0) return;
@@ -45,8 +50,16 @@ export function LocateMode({ districts }: LocateModeProps) {
     setPreviewDistrictId(null);
     setShowCelebration(false);
     setShowCorrectAnswer(false);
+    setRevealCorrectDistrict(false);
     setIsWaiting(false);
   }, [districts, recentDistricts]);
+
+  useEffect(() => {
+    return () => {
+      if (revealTimeoutRef.current) clearTimeout(revealTimeoutRef.current);
+      if (nextRoundTimeoutRef.current) clearTimeout(nextRoundTimeoutRef.current);
+    };
+  }, []);
 
   useEffect(() => {
     generateQuestion();
@@ -75,14 +88,27 @@ export function LocateMode({ districts }: LocateModeProps) {
     const isCorrect = districtId === currentDistrict.id;
     setTotalQuestions((prev) => prev + 1);
     setSelectedDistrictId(districtId);
+    setIsWaiting(true);
 
     if (isCorrect) {
       setScore((prev) => prev + 1);
       setShowCelebration(true);
+
+      nextRoundTimeoutRef.current = setTimeout(() => {
+        generateQuestion();
+      }, CORRECT_ROUND_DELAY);
     } else {
       setShowCorrectAnswer(true);
       // Trigger zoom out to full view before showing correct answer
       setForceFullViewCounter(prev => prev + 1);
+
+      revealTimeoutRef.current = setTimeout(() => {
+        setRevealCorrectDistrict(true);
+      }, REVEAL_CORRECT_DELAY);
+
+      nextRoundTimeoutRef.current = setTimeout(() => {
+        generateQuestion();
+      }, WRONG_ROUND_DELAY);
     }
 
     // Add to recent districts
@@ -91,12 +117,6 @@ export function LocateMode({ districts }: LocateModeProps) {
       // Keep only the last N districts
       return updated.slice(-RECENT_DISTRICTS_COUNT);
     });
-
-    // Wait before next round
-    setIsWaiting(true);
-    setTimeout(() => {
-      generateQuestion();
-    }, NEXT_ROUND_DELAY);
   }, [currentDistrict, isWaiting, previewDistrictId, generateQuestion]);
 
   if (!currentDistrict) {
@@ -121,13 +141,23 @@ export function LocateMode({ districts }: LocateModeProps) {
           <MapView
             districts={districts}
             highlightedDistrictId={
-              showCorrectAnswer || showCelebration
+              revealCorrectDistrict || showCelebration
                 ? currentDistrict.id
                 : previewDistrictId
             }
             onDistrictClick={handleDistrictClick}
-            selectedDistrictId={showCorrectAnswer ? currentDistrict.id : (showCelebration ? selectedDistrictId : null)}
-            wrongDistrictId={showCorrectAnswer && selectedDistrictId !== currentDistrict.id ? selectedDistrictId : null}
+            selectedDistrictId={
+              revealCorrectDistrict
+                ? currentDistrict.id
+                : showCelebration
+                  ? selectedDistrictId
+                  : null
+            }
+            wrongDistrictId={
+              showCorrectAnswer && selectedDistrictId !== currentDistrict.id
+                ? selectedDistrictId
+                : null
+            }
             forceFullView={forceFullViewCounter}
           />
           {showCelebration && (

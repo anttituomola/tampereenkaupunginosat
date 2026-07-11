@@ -21,6 +21,9 @@ const MIN_ZOOM_RATIO = 0.05; // Allow zooming much closer to small districts
 const ZOOM_STEP = 0.2; // Zoom step (20% per click)
 const MOBILE_BREAKPOINT = 768; // px
 const RURAL_EXCLUDED_COUNT = 7; // Largest rural districts to exclude from mobile default framing
+const AUTO_ZOOM_DURATION = 1300; // ms, automatic zoom to a district
+const FORCE_FULL_VIEW_DURATION = 1300; // ms, zoom out to the full/default view
+const HIGHLIGHT_ZOOM_DELAY = 500; // ms, pause before zooming to a district
 
 /**
  * Calculate bounding box from SVG path string
@@ -323,8 +326,8 @@ export function MapView({
 
       // After a short delay, animate to the highlighted district
       const timer = setTimeout(() => {
-        animateViewBox(startBox, autoViewBox, 1000);
-      }, 400);
+        animateViewBox(startBox, autoViewBox, AUTO_ZOOM_DURATION);
+      }, HIGHLIGHT_ZOOM_DELAY);
 
       return () => {
         clearTimeout(timer);
@@ -341,7 +344,7 @@ export function MapView({
   useEffect(() => {
     if (forceFullView) {
       const currentBox = manualZoom || animatedViewBox || autoViewBox;
-      animateViewBox(currentBox, fullViewBox, 800);
+      animateViewBox(currentBox, fullViewBox, FORCE_FULL_VIEW_DURATION);
       setManualZoom(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
