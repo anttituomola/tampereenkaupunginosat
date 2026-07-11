@@ -50,19 +50,31 @@
 }
 
 .next-round-indicator {
+  align-self: center;
   text-align: center;
-  color: #666;
+  color: #667eea;
+  background-color: #f0f2ff;
   font-size: 0.875rem;
-  padding: 0.5rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
   animation: fadeInOut 1s ease-in-out infinite;
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
-  max-width: 100%;
+  max-width: calc(100% - 1rem);
   box-sizing: border-box;
-  width: 100%;
   margin: 0;
   overflow: visible;
+  line-height: 1.4;
+  z-index: 10;
+}
+
+@media (max-width: 640px) {
+  .next-round-indicator {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.875rem;
+  }
 }
 
 @keyframes fadeInOut {
@@ -79,15 +91,6 @@
     padding: 0.5rem;
     gap: 0.75rem;
     flex-direction: column;
-  }
-
-  .next-round-indicator {
-    padding: 0.5rem 0.25rem;
-    font-size: 0.75rem;
-    line-height: 1.4;
-    width: 100%;
-    margin: 0;
-    white-space: normal;
   }
 }
 
