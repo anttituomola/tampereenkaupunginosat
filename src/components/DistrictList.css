@@ -1,0 +1,106 @@
+.district-list {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.district-list-breadcrumb {
+  font-size: 0.875rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.district-list-breadcrumb a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.district-list-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.district-list-breadcrumb .current {
+  color: #333;
+  font-weight: 500;
+}
+
+.district-list-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.district-list-header p {
+  margin: 0 0 1.5rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.district-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.district-list-group {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.district-list-group h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.125rem;
+  color: #333;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 0.5rem;
+}
+
+.district-list-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.district-list-group li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.district-list-group li:last-child {
+  border-bottom: none;
+}
+
+.district-list-group a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.district-list-group a:hover {
+  color: #667eea;
+  text-decoration: underline;
+}
+
+.district-list-meta {
+  font-size: 0.75rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .district-list-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .district-list-grid {
+    grid-template-columns: 1fr;
+  }
+}

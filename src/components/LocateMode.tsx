@@ -51,6 +51,15 @@ export function LocateMode({ districts }: LocateModeProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Only run on mount
 
+  useEffect(() => {
+    document.title = 'Etsi kaupunginosa – Tampereen kaupunginosat';
+    setMetaDescription('Harjoittele Tampereen kaupunginosien sijaintia etsintäpelissä. Etsi oikea alue kartalta annetun nimen perusteella.');
+    return () => {
+      document.title = 'Tampereen kaupunginosat';
+      setMetaDescription('Tutustu Tampereen kaupunginosiin, opi niiden nimet ja sijainnit.');
+    };
+  }, []);
+
   const handleDistrictClick = useCallback((districtId: string) => {
     if (!currentDistrict || isWaiting) return;
 
@@ -95,7 +104,7 @@ export function LocateMode({ districts }: LocateModeProps) {
         <div className="locate-mode-map-wrapper">
           <MapView
             districts={districts}
-            highlightedDistrictId={null}
+            highlightedDistrictId={showCorrectAnswer || showCelebration ? currentDistrict.id : null}
             onDistrictClick={handleDistrictClick}
             selectedDistrictId={showCorrectAnswer ? currentDistrict.id : (showCelebration ? selectedDistrictId : null)}
             wrongDistrictId={showCorrectAnswer && selectedDistrictId !== currentDistrict.id ? selectedDistrictId : null}
@@ -119,3 +128,13 @@ export function LocateMode({ districts }: LocateModeProps) {
   );
 }
 
+
+function setMetaDescription(content: string) {
+  let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = 'description';
+    document.head.appendChild(meta);
+  }
+  meta.content = content;
+}

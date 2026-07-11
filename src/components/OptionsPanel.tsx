@@ -17,12 +17,14 @@ export function OptionsPanel({
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
 
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
     // Shuffle options when they change
     const shuffled = [...options].sort(() => Math.random() - 0.5);
     setShuffledOptions(shuffled);
     setSelectedOption(null);
   }, [options]);
+  /* eslint-enable react-hooks/set-state-in-effect */
 
   const handleClick = (option: string) => {
     if (disabled || selectedOption !== null) return;

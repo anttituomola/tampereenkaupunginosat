@@ -36,6 +36,54 @@
   display: none;
 }
 
+.view-mode-header p.desktop-hide {
+  display: block;
+}
+
+.selected-district-info {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.selected-district-info h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  color: #333;
+}
+
+.district-info-link {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.district-info-link:hover {
+  text-decoration: underline;
+}
+
+.clear-selection-button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #333;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clear-selection-button:hover {
+  background-color: #e9ecef;
+}
+
 .view-mode-map-wrapper {
   position: relative;
   flex: 1;
@@ -71,6 +119,10 @@
 
   .view-mode-header p.mobile-hide {
     display: block;
+  }
+
+  .view-mode-header p.desktop-hide {
+    display: none;
   }
 
   .view-mode-map-wrapper {

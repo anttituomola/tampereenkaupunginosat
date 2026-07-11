@@ -67,6 +67,23 @@ export function Game({ districts }: GameProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Only run on mount
 
+  useEffect(() => {
+    document.title = 'Tampereen kaupunginosat – Visa, kartta ja tiedot';
+    setMetaDescription('Testaa tietosi Tampereen kaupunginosista vuorovaikutteisessa visassa. Tutustu myös karttaan ja jokaisen kaupunginosan omaan sivuun.');
+  }, []);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Tampereen kaupunginosat',
+    url: 'https://tampereenkaupunginosat.fi/',
+    description: 'Vuorovaikutteinen sivusto Tampereen kaupunginosien oppimiseen.',
+    publisher: {
+      '@type': 'Person',
+      name: 'Antti Tuomola',
+    },
+  };
+
   const handleAnswer = (selectedName: string) => {
     if (!currentDistrict) return;
 
@@ -97,6 +114,9 @@ export function Game({ districts }: GameProps) {
 
   return (
     <div className="game-container">
+      <script type="application/ld+json">
+        {JSON.stringify(jsonLd)}
+      </script>
       <div className="game-content">
         <MapView
           districts={districts}
@@ -117,3 +137,13 @@ export function Game({ districts }: GameProps) {
   );
 }
 
+
+function setMetaDescription(content: string) {
+  let meta = document.querySelector('meta[name="description"]') as HTMLMetaElement | null;
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = 'description';
+    document.head.appendChild(meta);
+  }
+  meta.content = content;
+}

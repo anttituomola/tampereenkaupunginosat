@@ -1,0 +1,1172 @@
+[
+  {
+    "id": "435125",
+    "name": "VIHIOJA (XXV)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Iides",
+    "areaHa": 78.5,
+    "population2020": 57,
+    "description": "VIHIOJA (XXV) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 57 asukasta. Kaupunginosan pinta-ala on noin 78.5 hehtaaria."
+  },
+  {
+    "id": "438309",
+    "name": "TAATALA",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Koivisto",
+    "areaHa": 24.9,
+    "population2020": 988,
+    "description": "TAATALA on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 988 asukasta. Kaupunginosan pinta-ala on noin 24.9 hehtaaria."
+  },
+  {
+    "id": "438306",
+    "name": "RAUTAHARKKO",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Koivisto",
+    "areaHa": 19.1,
+    "population2020": 487,
+    "description": "RAUTAHARKKO on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 487 asukasta. Kaupunginosan pinta-ala on noin 19.1 hehtaaria."
+  },
+  {
+    "id": "437301",
+    "name": "HÄRMÄLÄ",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Härmä",
+    "areaHa": 115.9,
+    "population2020": 7143,
+    "description": "HÄRMÄLÄ on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 7143 asukasta. Kaupunginosan pinta-ala on noin 115.9 hehtaaria."
+  },
+  {
+    "id": "541273",
+    "name": "LENTÄVÄNNIEMI",
+    "suuralue": "Luoteinen",
+    "suuralueDisplay": "Luoteinen suuralue",
+    "suunnittelualue": "Lentävä",
+    "areaHa": 68.8,
+    "population2020": 5211,
+    "description": "LENTÄVÄNNIEMI on Tampereen kaupunginosa Luoteisella suuralueella. Vuonna 2020 alueella oli 5211 asukasta. Kaupunginosan pinta-ala on noin 68.8 hehtaaria."
+  },
+  {
+    "id": "213004",
+    "name": "RUOTULA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 40.6,
+    "population2020": 1114,
+    "description": "RUOTULA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 1114 asukasta. Kaupunginosan pinta-ala on noin 40.6 hehtaaria."
+  },
+  {
+    "id": "213009",
+    "name": "TAKAHUHTI",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 49.9,
+    "population2020": 846,
+    "description": "TAKAHUHTI on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 846 asukasta. Kaupunginosan pinta-ala on noin 49.9 hehtaaria."
+  },
+  {
+    "id": "217028",
+    "name": "PAPPILA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 76.1,
+    "population2020": 3617,
+    "description": "PAPPILA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 3617 asukasta. Kaupunginosan pinta-ala on noin 76.1 hehtaaria."
+  },
+  {
+    "id": "221037",
+    "name": "LINNAINMAA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Leino",
+    "areaHa": 129.9,
+    "population2020": 6268,
+    "description": "LINNAINMAA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 6268 asukasta. Kaupunginosan pinta-ala on noin 129.9 hehtaaria."
+  },
+  {
+    "id": "116029",
+    "name": "KAUPINLAAKSO",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 51.3,
+    "population2020": null,
+    "description": "KAUPINLAAKSO on Tampereen kaupunginosa Keskisellä suuralueella. Kaupunginosan pinta-ala on noin 51.3 hehtaaria."
+  },
+  {
+    "id": "218034",
+    "name": "KUMPULA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Tasa",
+    "areaHa": 30.3,
+    "population2020": 596,
+    "description": "KUMPULA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 596 asukasta. Kaupunginosan pinta-ala on noin 30.3 hehtaaria."
+  },
+  {
+    "id": "220031",
+    "name": "ATALA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Tasa",
+    "areaHa": 97.7,
+    "population2020": 4782,
+    "description": "ATALA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 4782 asukasta. Kaupunginosan pinta-ala on noin 97.7 hehtaaria."
+  },
+  {
+    "id": "223083",
+    "name": "SORILA",
+    "suuralue": "Pohjoinen",
+    "suuralueDisplay": "Pohjoinen suuralue",
+    "suunnittelualue": "Aito",
+    "areaHa": 388.6,
+    "population2020": 381,
+    "description": "SORILA on Tampereen kaupunginosa Pohjoisella suuralueella. Vuonna 2020 alueella oli 381 asukasta. Kaupunginosan pinta-ala on noin 388.6 hehtaaria."
+  },
+  {
+    "id": "223086",
+    "name": "AITONIEMI",
+    "suuralue": "Pohjoinen",
+    "suuralueDisplay": "Pohjoinen suuralue",
+    "suunnittelualue": "Aito",
+    "areaHa": 691.3,
+    "population2020": 450,
+    "description": "AITONIEMI on Tampereen kaupunginosa Pohjoisella suuralueella. Vuonna 2020 alueella oli 450 asukasta. Kaupunginosan pinta-ala on noin 691.3 hehtaaria."
+  },
+  {
+    "id": "116030",
+    "name": "NIIHAMA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Tasa",
+    "areaHa": 19.3,
+    "population2020": 25,
+    "description": "NIIHAMA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 25 asukasta. Kaupunginosan pinta-ala on noin 19.3 hehtaaria."
+  },
+  {
+    "id": "218035",
+    "name": "TASANNE",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Tasa",
+    "areaHa": 42.7,
+    "population2020": 1412,
+    "description": "TASANNE on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 1412 asukasta. Kaupunginosan pinta-ala on noin 42.7 hehtaaria."
+  },
+  {
+    "id": "219032",
+    "name": "OJALA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Tasa",
+    "areaHa": 22.5,
+    "population2020": 49,
+    "description": "OJALA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 49 asukasta. Kaupunginosan pinta-ala on noin 22.5 hehtaaria."
+  },
+  {
+    "id": "223080",
+    "name": "NURMI",
+    "suuralue": "Pohjoinen",
+    "suuralueDisplay": "Pohjoinen suuralue",
+    "suunnittelualue": "Aito",
+    "areaHa": 92.8,
+    "population2020": 361,
+    "description": "NURMI on Tampereen kaupunginosa Pohjoisella suuralueella. Vuonna 2020 alueella oli 361 asukasta. Kaupunginosan pinta-ala on noin 92.8 hehtaaria."
+  },
+  {
+    "id": "218036",
+    "name": "OLKAHINEN",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Tasa",
+    "areaHa": 55.2,
+    "population2020": 1821,
+    "description": "OLKAHINEN on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 1821 asukasta. Kaupunginosan pinta-ala on noin 55.2 hehtaaria."
+  },
+  {
+    "id": "214015",
+    "name": "RISTINARKKU",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 50.6,
+    "population2020": 546,
+    "description": "RISTINARKKU on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 546 asukasta. Kaupunginosan pinta-ala on noin 50.6 hehtaaria."
+  },
+  {
+    "id": "213006",
+    "name": "HUIKAS",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 27.2,
+    "population2020": 2148,
+    "description": "HUIKAS on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 2148 asukasta. Kaupunginosan pinta-ala on noin 27.2 hehtaaria."
+  },
+  {
+    "id": "112001",
+    "name": "UUSIKYLÄ",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 21.1,
+    "population2020": 1454,
+    "description": "UUSIKYLÄ on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 1454 asukasta. Kaupunginosan pinta-ala on noin 21.1 hehtaaria."
+  },
+  {
+    "id": "112133",
+    "name": "KISSANMAA",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 46.3,
+    "population2020": 2774,
+    "description": "KISSANMAA on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2774 asukasta. Kaupunginosan pinta-ala on noin 46.3 hehtaaria."
+  },
+  {
+    "id": "112132",
+    "name": "KAUPPI",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 60.4,
+    "population2020": 82,
+    "description": "KAUPPI on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 82 asukasta. Kaupunginosan pinta-ala on noin 60.4 hehtaaria."
+  },
+  {
+    "id": "109121",
+    "name": "PETSAMO (XXI)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 48.3,
+    "population2020": 3543,
+    "description": "PETSAMO (XXI) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 3543 asukasta. Kaupunginosan pinta-ala on noin 48.3 hehtaaria."
+  },
+  {
+    "id": "107116",
+    "name": "TAMMELA B (XVI)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 11.2,
+    "population2020": 2385,
+    "description": "TAMMELA B (XVI) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2385 asukasta. Kaupunginosan pinta-ala on noin 11.2 hehtaaria."
+  },
+  {
+    "id": "106112",
+    "name": "KYTTÄLÄ B (XII)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 9.5,
+    "population2020": 1757,
+    "description": "KYTTÄLÄ B (XII) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1757 asukasta. Kaupunginosan pinta-ala on noin 9.5 hehtaaria."
+  },
+  {
+    "id": "102103",
+    "name": "NALKALA (III)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 17.0,
+    "population2020": 3634,
+    "description": "NALKALA (III) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 3634 asukasta. Kaupunginosan pinta-ala on noin 17.0 hehtaaria."
+  },
+  {
+    "id": "104106",
+    "name": "KAAKINMAA (VI)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 15.9,
+    "population2020": 2950,
+    "description": "KAAKINMAA (VI) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2950 asukasta. Kaupunginosan pinta-ala on noin 15.9 hehtaaria."
+  },
+  {
+    "id": "110129",
+    "name": "KALEVA",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 36.2,
+    "population2020": 4488,
+    "description": "KALEVA on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 4488 asukasta. Kaupunginosan pinta-ala on noin 36.2 hehtaaria."
+  },
+  {
+    "id": "110120",
+    "name": "LIISANKALLIO (XX)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 17.3,
+    "population2020": 3396,
+    "description": "LIISANKALLIO (XX) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 3396 asukasta. Kaupunginosan pinta-ala on noin 17.3 hehtaaria."
+  },
+  {
+    "id": "107117",
+    "name": "TULLI (XVII)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 13.7,
+    "population2020": 1291,
+    "description": "TULLI (XVII) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1291 asukasta. Kaupunginosan pinta-ala on noin 13.7 hehtaaria."
+  },
+  {
+    "id": "102113",
+    "name": "RATINA (XIII)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 18.5,
+    "population2020": 1420,
+    "description": "RATINA (XIII) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1420 asukasta. Kaupunginosan pinta-ala on noin 18.5 hehtaaria."
+  },
+  {
+    "id": "111118",
+    "name": "KALEVANHARJU (XVIII)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 45.3,
+    "population2020": 1998,
+    "description": "KALEVANHARJU (XVIII) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1998 asukasta. Kaupunginosan pinta-ala on noin 45.3 hehtaaria."
+  },
+  {
+    "id": "435123",
+    "name": "VIINIKKA (XXIII)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Iides",
+    "areaHa": 22.4,
+    "population2020": 1298,
+    "description": "VIINIKKA (XXIII) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1298 asukasta. Kaupunginosan pinta-ala on noin 22.4 hehtaaria."
+  },
+  {
+    "id": "437303",
+    "name": "RANTAPERKIÖ",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Härmä",
+    "areaHa": 59.2,
+    "population2020": 2642,
+    "description": "RANTAPERKIÖ on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 2642 asukasta. Kaupunginosan pinta-ala on noin 59.2 hehtaaria."
+  },
+  {
+    "id": "434122",
+    "name": "HATANPÄÄ (XXII)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 97.0,
+    "population2020": 2842,
+    "description": "HATANPÄÄ (XXII) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2842 asukasta. Kaupunginosan pinta-ala on noin 97.0 hehtaaria."
+  },
+  {
+    "id": "104134",
+    "name": "PYYNIKKI",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 6.6,
+    "population2020": 870,
+    "description": "PYYNIKKI on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 870 asukasta. Kaupunginosan pinta-ala on noin 6.6 hehtaaria."
+  },
+  {
+    "id": "221048",
+    "name": "HANKKIO",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Leino",
+    "areaHa": 56.8,
+    "population2020": 175,
+    "description": "HANKKIO on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 175 asukasta. Kaupunginosan pinta-ala on noin 56.8 hehtaaria."
+  },
+  {
+    "id": "214020",
+    "name": "MESSUKYLÄ",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 56.4,
+    "population2020": 3480,
+    "description": "MESSUKYLÄ on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 3480 asukasta. Kaupunginosan pinta-ala on noin 56.4 hehtaaria."
+  },
+  {
+    "id": "110012",
+    "name": "HAKAMETSÄ",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 18.6,
+    "population2020": 3213,
+    "description": "HAKAMETSÄ on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 3213 asukasta. Kaupunginosan pinta-ala on noin 18.6 hehtaaria."
+  },
+  {
+    "id": "110119",
+    "name": "KALEVANRINNE (XIX)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 28.6,
+    "population2020": 3698,
+    "description": "KALEVANRINNE (XIX) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 3698 asukasta. Kaupunginosan pinta-ala on noin 28.6 hehtaaria."
+  },
+  {
+    "id": "111130",
+    "name": "JÄRVENSIVU",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 21.2,
+    "population2020": 1368,
+    "description": "JÄRVENSIVU on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1368 asukasta. Kaupunginosan pinta-ala on noin 21.2 hehtaaria."
+  },
+  {
+    "id": "435124",
+    "name": "NEKALA (XXIV)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Iides",
+    "areaHa": 17.5,
+    "population2020": 1051,
+    "description": "NEKALA (XXIV) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1051 asukasta. Kaupunginosan pinta-ala on noin 17.5 hehtaaria."
+  },
+  {
+    "id": "440302",
+    "name": "SARANKULMA",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Härmä",
+    "areaHa": 74.4,
+    "population2020": 12,
+    "description": "SARANKULMA on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 12 asukasta. Kaupunginosan pinta-ala on noin 74.4 hehtaaria."
+  },
+  {
+    "id": "332078",
+    "name": "HERVANTAJÄRVI",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Herva",
+    "areaHa": 65.1,
+    "population2020": 735,
+    "description": "HERVANTAJÄRVI on Tampereen kaupunginosa Kaakkoisella suuralueella. Vuonna 2020 alueella oli 735 asukasta. Kaupunginosan pinta-ala on noin 65.1 hehtaaria."
+  },
+  {
+    "id": "330069",
+    "name": "HERVANTA KAAKKO",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Herva",
+    "areaHa": 19.0,
+    "population2020": null,
+    "description": "HERVANTA KAAKKO on Tampereen kaupunginosa Kaakkoisella suuralueella. Kaupunginosan pinta-ala on noin 19.0 hehtaaria."
+  },
+  {
+    "id": "331075",
+    "name": "RUSKO",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Herva",
+    "areaHa": 135.0,
+    "population2020": 65,
+    "description": "RUSKO on Tampereen kaupunginosa Kaakkoisella suuralueella. Vuonna 2020 alueella oli 65 asukasta. Kaupunginosan pinta-ala on noin 135.0 hehtaaria."
+  },
+  {
+    "id": "327059",
+    "name": "ANNALA",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Kauka",
+    "areaHa": 52.4,
+    "population2020": null,
+    "description": "ANNALA on Tampereen kaupunginosa Kaakkoisella suuralueella. Kaupunginosan pinta-ala on noin 52.4 hehtaaria."
+  },
+  {
+    "id": "327060",
+    "name": "KAUKAJÄRVI",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Kauka",
+    "areaHa": 181.3,
+    "population2020": 12557,
+    "description": "KAUKAJÄRVI on Tampereen kaupunginosa Kaakkoisella suuralueella. Vuonna 2020 alueella oli 12557 asukasta. Kaupunginosan pinta-ala on noin 181.3 hehtaaria."
+  },
+  {
+    "id": "215055",
+    "name": "VIIALA",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Kauka",
+    "areaHa": 47.3,
+    "population2020": 1649,
+    "description": "VIIALA on Tampereen kaupunginosa Kaakkoisella suuralueella. Vuonna 2020 alueella oli 1649 asukasta. Kaupunginosan pinta-ala on noin 47.3 hehtaaria."
+  },
+  {
+    "id": "214018",
+    "name": "AAKKULA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Messu",
+    "areaHa": 10.3,
+    "population2020": 673,
+    "description": "AAKKULA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 673 asukasta. Kaupunginosan pinta-ala on noin 10.3 hehtaaria."
+  },
+  {
+    "id": "111131",
+    "name": "VUOHENOJA",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 15.5,
+    "population2020": 619,
+    "description": "VUOHENOJA on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 619 asukasta. Kaupunginosan pinta-ala on noin 15.5 hehtaaria."
+  },
+  {
+    "id": "436135",
+    "name": "MUOTIALA",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Iides",
+    "areaHa": 22.4,
+    "population2020": 1773,
+    "description": "MUOTIALA on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1773 asukasta. Kaupunginosan pinta-ala on noin 22.4 hehtaaria."
+  },
+  {
+    "id": "436126",
+    "name": "JOKIPOHJA (XXVI)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Iides",
+    "areaHa": 35.6,
+    "population2020": 2196,
+    "description": "JOKIPOHJA (XXVI) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2196 asukasta. Kaupunginosan pinta-ala on noin 35.6 hehtaaria."
+  },
+  {
+    "id": "438312",
+    "name": "KOIVISTONKYLÄ",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Koivisto",
+    "areaHa": 57.6,
+    "population2020": 1914,
+    "description": "KOIVISTONKYLÄ on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 1914 asukasta. Kaupunginosan pinta-ala on noin 57.6 hehtaaria."
+  },
+  {
+    "id": "440320",
+    "name": "LAKALAIVA",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Peltoo",
+    "areaHa": 31.1,
+    "population2020": 31,
+    "description": "LAKALAIVA on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 31 asukasta. Kaupunginosan pinta-ala on noin 31.1 hehtaaria."
+  },
+  {
+    "id": "440323",
+    "name": "PELTOLAMMI",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Peltoo",
+    "areaHa": 51.9,
+    "population2020": 3402,
+    "description": "PELTOLAMMI on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 3402 asukasta. Kaupunginosan pinta-ala on noin 51.9 hehtaaria."
+  },
+  {
+    "id": "440325",
+    "name": "MULTISILTA",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Peltoo",
+    "areaHa": 44.6,
+    "population2020": 2373,
+    "description": "MULTISILTA on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 2373 asukasta. Kaupunginosan pinta-ala on noin 44.6 hehtaaria."
+  },
+  {
+    "id": "333327",
+    "name": "VUORES",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Peltoo",
+    "areaHa": 97.4,
+    "population2020": 6138,
+    "description": "VUORES on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 6138 asukasta. Kaupunginosan pinta-ala on noin 97.4 hehtaaria."
+  },
+  {
+    "id": "330068",
+    "name": "HERVANTA LOUNAS",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Herva",
+    "areaHa": 24.6,
+    "population2020": null,
+    "description": "HERVANTA LOUNAS on Tampereen kaupunginosa Kaakkoisella suuralueella. Kaupunginosan pinta-ala on noin 24.6 hehtaaria."
+  },
+  {
+    "id": "329067",
+    "name": "HERVANTA KOILLINEN",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Herva",
+    "areaHa": 36.1,
+    "population2020": null,
+    "description": "HERVANTA KOILLINEN on Tampereen kaupunginosa Kaakkoisella suuralueella. Kaupunginosan pinta-ala on noin 36.1 hehtaaria."
+  },
+  {
+    "id": "327061",
+    "name": "LUKONMÄKI",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Kauka",
+    "areaHa": 39.8,
+    "population2020": 2734,
+    "description": "LUKONMÄKI on Tampereen kaupunginosa Kaakkoisella suuralueella. Vuonna 2020 alueella oli 2734 asukasta. Kaupunginosan pinta-ala on noin 39.8 hehtaaria."
+  },
+  {
+    "id": "215053",
+    "name": "TURTOLA",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Kauka",
+    "areaHa": 28.5,
+    "population2020": 909,
+    "description": "TURTOLA on Tampereen kaupunginosa Kaakkoisella suuralueella. Vuonna 2020 alueella oli 909 asukasta. Kaupunginosan pinta-ala on noin 28.5 hehtaaria."
+  },
+  {
+    "id": "439316",
+    "name": "KORKINMÄKI",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Koivisto",
+    "areaHa": 23.6,
+    "population2020": 1092,
+    "description": "KORKINMÄKI on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 1092 asukasta. Kaupunginosan pinta-ala on noin 23.6 hehtaaria."
+  },
+  {
+    "id": "439315",
+    "name": "VEISU",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Koivisto",
+    "areaHa": 55.7,
+    "population2020": 1507,
+    "description": "VEISU on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 1507 asukasta. Kaupunginosan pinta-ala on noin 55.7 hehtaaria."
+  },
+  {
+    "id": "440330",
+    "name": "LAHDESJÄRVI",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Peltoo",
+    "areaHa": 103.5,
+    "population2020": 58,
+    "description": "LAHDESJÄRVI on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 58 asukasta. Kaupunginosan pinta-ala on noin 103.5 hehtaaria."
+  },
+  {
+    "id": "329066",
+    "name": "HERVANTA LUODE",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Herva",
+    "areaHa": 38.9,
+    "population2020": null,
+    "description": "HERVANTA LUODE on Tampereen kaupunginosa Kaakkoisella suuralueella. Kaupunginosan pinta-ala on noin 38.9 hehtaaria."
+  },
+  {
+    "id": "328062",
+    "name": "HALLILA",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Kauka",
+    "areaHa": 49.1,
+    "population2020": 2501,
+    "description": "HALLILA on Tampereen kaupunginosa Kaakkoisella suuralueella. Vuonna 2020 alueella oli 2501 asukasta. Kaupunginosan pinta-ala on noin 49.1 hehtaaria."
+  },
+  {
+    "id": "546223",
+    "name": "TOHLOPPI",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Tesoma",
+    "areaHa": 36.7,
+    "population2020": 2293,
+    "description": "TOHLOPPI on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 2293 asukasta. Kaupunginosan pinta-ala on noin 36.7 hehtaaria."
+  },
+  {
+    "id": "545225",
+    "name": "LAMMINPÄÄ",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Tesoma",
+    "areaHa": 90.2,
+    "population2020": 2895,
+    "description": "LAMMINPÄÄ on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 2895 asukasta. Kaupunginosan pinta-ala on noin 90.2 hehtaaria."
+  },
+  {
+    "id": "545224",
+    "name": "HAUKILUOMA",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Tesoma",
+    "areaHa": 31.8,
+    "population2020": 1889,
+    "description": "HAUKILUOMA on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 1889 asukasta. Kaupunginosan pinta-ala on noin 31.8 hehtaaria."
+  },
+  {
+    "id": "551235",
+    "name": "MYLLYPURO",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Tesoma",
+    "areaHa": 97.5,
+    "population2020": null,
+    "description": "MYLLYPURO on Tampereen kaupunginosa Lounaisella suuralueella. Kaupunginosan pinta-ala on noin 97.5 hehtaaria."
+  },
+  {
+    "id": "549237",
+    "name": "IKURI",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Tesoma",
+    "areaHa": 100.8,
+    "population2020": 4365,
+    "description": "IKURI on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 4365 asukasta. Kaupunginosan pinta-ala on noin 100.8 hehtaaria."
+  },
+  {
+    "id": "101102",
+    "name": "TAMMERKOSKI (II)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 11.3,
+    "population2020": 2074,
+    "description": "TAMMERKOSKI (II) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2074 asukasta. Kaupunginosan pinta-ala on noin 11.3 hehtaaria."
+  },
+  {
+    "id": "103105",
+    "name": "AMURI B (V)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 9.0,
+    "population2020": 2312,
+    "description": "AMURI B (V) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2312 asukasta. Kaupunginosan pinta-ala on noin 9.0 hehtaaria."
+  },
+  {
+    "id": "327058",
+    "name": "HAIHARA",
+    "suuralue": "Kaakkoinen",
+    "suuralueDisplay": "Kaakkoinen suuralue",
+    "suunnittelualue": "Kauka",
+    "areaHa": 5.9,
+    "population2020": 175,
+    "description": "HAIHARA on Tampereen kaupunginosa Kaakkoisella suuralueella. Vuonna 2020 alueella oli 175 asukasta. Kaupunginosan pinta-ala on noin 5.9 hehtaaria."
+  },
+  {
+    "id": "104107",
+    "name": "PYYNIKINRINNE (VII)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 16.6,
+    "population2020": 1782,
+    "description": "PYYNIKINRINNE (VII) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1782 asukasta. Kaupunginosan pinta-ala on noin 16.6 hehtaaria."
+  },
+  {
+    "id": "108213",
+    "name": "YLÄ-PISPALA",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Pispala",
+    "areaHa": 22.0,
+    "population2020": 1688,
+    "description": "YLÄ-PISPALA on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 1688 asukasta. Kaupunginosan pinta-ala on noin 22.0 hehtaaria."
+  },
+  {
+    "id": "108215",
+    "name": "TAHMELA",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Pispala",
+    "areaHa": 19.1,
+    "population2020": 966,
+    "description": "TAHMELA on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 966 asukasta. Kaupunginosan pinta-ala on noin 19.1 hehtaaria."
+  },
+  {
+    "id": "544210",
+    "name": "KAARILA",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Raho",
+    "areaHa": 37.6,
+    "population2020": 1485,
+    "description": "KAARILA on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 1485 asukasta. Kaupunginosan pinta-ala on noin 37.6 hehtaaria."
+  },
+  {
+    "id": "548233",
+    "name": "RAHOLA",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Raho",
+    "areaHa": 103.6,
+    "population2020": 3805,
+    "description": "RAHOLA on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 3805 asukasta. Kaupunginosan pinta-ala on noin 103.6 hehtaaria."
+  },
+  {
+    "id": "326045",
+    "name": "VEHMAINEN",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Leino",
+    "areaHa": 106.5,
+    "population2020": 2158,
+    "description": "VEHMAINEN on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 2158 asukasta. Kaupunginosan pinta-ala on noin 106.5 hehtaaria."
+  },
+  {
+    "id": "222040",
+    "name": "LEINOLA",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Leino",
+    "areaHa": 75.7,
+    "population2020": 2125,
+    "description": "LEINOLA on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 2125 asukasta. Kaupunginosan pinta-ala on noin 75.7 hehtaaria."
+  },
+  {
+    "id": "222043",
+    "name": "HOLVASTI",
+    "suuralue": "Koillinen",
+    "suuralueDisplay": "Koillinen suuralue",
+    "suunnittelualue": "Leino",
+    "areaHa": 48.9,
+    "population2020": 2389,
+    "description": "HOLVASTI on Tampereen kaupunginosa Koillisella suuralueella. Vuonna 2020 alueella oli 2389 asukasta. Kaupunginosan pinta-ala on noin 48.9 hehtaaria."
+  },
+  {
+    "id": "225092",
+    "name": "VIITAPOHJA",
+    "suuralue": "Pohjoinen",
+    "suuralueDisplay": "Pohjoinen suuralue",
+    "suunnittelualue": "Kämmen",
+    "areaHa": 914.8,
+    "population2020": 227,
+    "description": "VIITAPOHJA on Tampereen kaupunginosa Pohjoisella suuralueella. Vuonna 2020 alueella oli 227 asukasta. Kaupunginosan pinta-ala on noin 914.8 hehtaaria."
+  },
+  {
+    "id": "224090",
+    "name": "KÄMMENNIEMI",
+    "suuralue": "Pohjoinen",
+    "suuralueDisplay": "Pohjoinen suuralue",
+    "suunnittelualue": "Kämmen",
+    "areaHa": 38.1,
+    "population2020": 1962,
+    "description": "KÄMMENNIEMI on Tampereen kaupunginosa Pohjoisella suuralueella. Vuonna 2020 alueella oli 1962 asukasta. Kaupunginosan pinta-ala on noin 38.1 hehtaaria."
+  },
+  {
+    "id": "438318",
+    "name": "NIRVA",
+    "suuralue": "Eteläinen",
+    "suuralueDisplay": "Eteläinen suuralue",
+    "suunnittelualue": "Koivisto",
+    "areaHa": 26.1,
+    "population2020": 426,
+    "description": "NIRVA on Tampereen kaupunginosa Eteläisellä suuralueella. Vuonna 2020 alueella oli 426 asukasta. Kaupunginosan pinta-ala on noin 26.1 hehtaaria."
+  },
+  {
+    "id": "101101",
+    "name": "FINLAYSON (I)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 13.0,
+    "population2020": 1351,
+    "description": "FINLAYSON (I) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1351 asukasta. Kaupunginosan pinta-ala on noin 13.0 hehtaaria."
+  },
+  {
+    "id": "106111",
+    "name": "KYTTÄLÄ A (XI)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 8.4,
+    "population2020": 1659,
+    "description": "KYTTÄLÄ A (XI) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1659 asukasta. Kaupunginosan pinta-ala on noin 8.4 hehtaaria."
+  },
+  {
+    "id": "103108",
+    "name": "SÄRKÄNNIEMI (VIII)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 27.9,
+    "population2020": 1083,
+    "description": "SÄRKÄNNIEMI (VIII) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1083 asukasta. Kaupunginosan pinta-ala on noin 27.9 hehtaaria."
+  },
+  {
+    "id": "105128",
+    "name": "LAPINNIEMI",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 19.7,
+    "population2020": 1518,
+    "description": "LAPINNIEMI on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1518 asukasta. Kaupunginosan pinta-ala on noin 19.7 hehtaaria."
+  },
+  {
+    "id": "105127",
+    "name": "LAPPI",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Sampo",
+    "areaHa": 7.9,
+    "population2020": 812,
+    "description": "LAPPI on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 812 asukasta. Kaupunginosan pinta-ala on noin 7.9 hehtaaria."
+  },
+  {
+    "id": "105109",
+    "name": "TAMPELLA (IX)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 27.4,
+    "population2020": 4917,
+    "description": "TAMPELLA (IX) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 4917 asukasta. Kaupunginosan pinta-ala on noin 27.4 hehtaaria."
+  },
+  {
+    "id": "106110",
+    "name": "JUSSINKYLÄ (X)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 6.9,
+    "population2020": 1209,
+    "description": "JUSSINKYLÄ (X) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 1209 asukasta. Kaupunginosan pinta-ala on noin 6.9 hehtaaria."
+  },
+  {
+    "id": "107114",
+    "name": "OSMONMÄKI (XIV)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 8.1,
+    "population2020": 2083,
+    "description": "OSMONMÄKI (XIV) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2083 asukasta. Kaupunginosan pinta-ala on noin 8.1 hehtaaria."
+  },
+  {
+    "id": "107115",
+    "name": "TAMMELA A (XV)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 16.3,
+    "population2020": 3266,
+    "description": "TAMMELA A (XV) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 3266 asukasta. Kaupunginosan pinta-ala on noin 16.3 hehtaaria."
+  },
+  {
+    "id": "103104",
+    "name": "AMURI A (IV)",
+    "suuralue": "Keskinen",
+    "suuralueDisplay": "Keskinen suuralue",
+    "suunnittelualue": "Keskusta",
+    "areaHa": 18.6,
+    "population2020": 2995,
+    "description": "AMURI A (IV) on Tampereen kaupunginosa Keskisellä suuralueella. Vuonna 2020 alueella oli 2995 asukasta. Kaupunginosan pinta-ala on noin 18.6 hehtaaria."
+  },
+  {
+    "id": "543221",
+    "name": "SANTALAHTI",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Pispala",
+    "areaHa": 6.6,
+    "population2020": 771,
+    "description": "SANTALAHTI on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 771 asukasta. Kaupunginosan pinta-ala on noin 6.6 hehtaaria."
+  },
+  {
+    "id": "108218",
+    "name": "ALA-PISPALA",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Pispala",
+    "areaHa": 21.4,
+    "population2020": 1055,
+    "description": "ALA-PISPALA on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 1055 asukasta. Kaupunginosan pinta-ala on noin 21.4 hehtaaria."
+  },
+  {
+    "id": "225095",
+    "name": "TERÄLAHTI",
+    "suuralue": "Pohjoinen",
+    "suuralueDisplay": "Pohjoinen suuralue",
+    "suunnittelualue": "Terä",
+    "areaHa": 1429.6,
+    "population2020": 450,
+    "description": "TERÄLAHTI on Tampereen kaupunginosa Pohjoisella suuralueella. Vuonna 2020 alueella oli 450 asukasta. Kaupunginosan pinta-ala on noin 1429.6 hehtaaria."
+  },
+  {
+    "id": "225098",
+    "name": "VELAATTA",
+    "suuralue": "Pohjoinen",
+    "suuralueDisplay": "Pohjoinen suuralue",
+    "suunnittelualue": "Terä",
+    "areaHa": 1672.2,
+    "population2020": 387,
+    "description": "VELAATTA on Tampereen kaupunginosa Pohjoisella suuralueella. Vuonna 2020 alueella oli 387 asukasta. Kaupunginosan pinta-ala on noin 1672.2 hehtaaria."
+  },
+  {
+    "id": "225094",
+    "name": "POLSO",
+    "suuralue": "Pohjoinen",
+    "suuralueDisplay": "Pohjoinen suuralue",
+    "suunnittelualue": "Terä",
+    "areaHa": 121.7,
+    "population2020": 149,
+    "description": "POLSO on Tampereen kaupunginosa Pohjoisella suuralueella. Vuonna 2020 alueella oli 149 asukasta. Kaupunginosan pinta-ala on noin 121.7 hehtaaria."
+  },
+  {
+    "id": "544207",
+    "name": "HYHKY",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Pispala",
+    "areaHa": 38.1,
+    "population2020": 3690,
+    "description": "HYHKY on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 3690 asukasta. Kaupunginosan pinta-ala on noin 38.1 hehtaaria."
+  },
+  {
+    "id": "544201",
+    "name": "EPILÄ",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Raho",
+    "areaHa": 22.1,
+    "population2020": 1442,
+    "description": "EPILÄ on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 1442 asukasta. Kaupunginosan pinta-ala on noin 22.1 hehtaaria."
+  },
+  {
+    "id": "543269",
+    "name": "HIEDANRANTA",
+    "suuralue": "Luoteinen",
+    "suuralueDisplay": "Luoteinen suuralue",
+    "suunnittelualue": "Liela",
+    "areaHa": 20.0,
+    "population2020": null,
+    "description": "HIEDANRANTA on Tampereen kaupunginosa Luoteisella suuralueella. Kaupunginosan pinta-ala on noin 20.0 hehtaaria."
+  },
+  {
+    "id": "543264",
+    "name": "NIEMENRANTA",
+    "suuralue": "Luoteinen",
+    "suuralueDisplay": "Luoteinen suuralue",
+    "suunnittelualue": "Liela",
+    "areaHa": 29.2,
+    "population2020": 2587,
+    "description": "NIEMENRANTA on Tampereen kaupunginosa Luoteisella suuralueella. Vuonna 2020 alueella oli 2587 asukasta. Kaupunginosan pinta-ala on noin 29.2 hehtaaria."
+  },
+  {
+    "id": "542260",
+    "name": "NIEMI",
+    "suuralue": "Luoteinen",
+    "suuralueDisplay": "Luoteinen suuralue",
+    "suunnittelualue": "Lentävä",
+    "areaHa": 47.9,
+    "population2020": 1422,
+    "description": "NIEMI on Tampereen kaupunginosa Luoteisella suuralueella. Vuonna 2020 alueella oli 1422 asukasta. Kaupunginosan pinta-ala on noin 47.9 hehtaaria."
+  },
+  {
+    "id": "542268",
+    "name": "LINTULAMPI",
+    "suuralue": "Luoteinen",
+    "suuralueDisplay": "Luoteinen suuralue",
+    "suunnittelualue": "Liela",
+    "areaHa": 42.8,
+    "population2020": 2422,
+    "description": "LINTULAMPI on Tampereen kaupunginosa Luoteisella suuralueella. Vuonna 2020 alueella oli 2422 asukasta. Kaupunginosan pinta-ala on noin 42.8 hehtaaria."
+  },
+  {
+    "id": "542265",
+    "name": "POHTOLA",
+    "suuralue": "Luoteinen",
+    "suuralueDisplay": "Luoteinen suuralue",
+    "suunnittelualue": "Liela",
+    "areaHa": 33.7,
+    "population2020": 1397,
+    "description": "POHTOLA on Tampereen kaupunginosa Luoteisella suuralueella. Vuonna 2020 alueella oli 1397 asukasta. Kaupunginosan pinta-ala on noin 33.7 hehtaaria."
+  },
+  {
+    "id": "548228",
+    "name": "VILLILÄ",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Raho",
+    "areaHa": 26.7,
+    "population2020": 1216,
+    "description": "VILLILÄ on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 1216 asukasta. Kaupunginosan pinta-ala on noin 26.7 hehtaaria."
+  },
+  {
+    "id": "547240",
+    "name": "RISTIMÄKI",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Tesoma",
+    "areaHa": 43.2,
+    "population2020": 2505,
+    "description": "RISTIMÄKI on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 2505 asukasta. Kaupunginosan pinta-ala on noin 43.2 hehtaaria."
+  },
+  {
+    "id": "544204",
+    "name": "EPILÄNHARJU",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Tesoma",
+    "areaHa": 25.1,
+    "population2020": 873,
+    "description": "EPILÄNHARJU on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 873 asukasta. Kaupunginosan pinta-ala on noin 25.1 hehtaaria."
+  },
+  {
+    "id": "543263",
+    "name": "LIELAHTI",
+    "suuralue": "Luoteinen",
+    "suuralueDisplay": "Luoteinen suuralue",
+    "suunnittelualue": "Liela",
+    "areaHa": 126.3,
+    "population2020": 623,
+    "description": "LIELAHTI on Tampereen kaupunginosa Luoteisella suuralueella. Vuonna 2020 alueella oli 623 asukasta. Kaupunginosan pinta-ala on noin 126.3 hehtaaria."
+  },
+  {
+    "id": "542270",
+    "name": "RYYDYNPOHJA",
+    "suuralue": "Luoteinen",
+    "suuralueDisplay": "Luoteinen suuralue",
+    "suunnittelualue": "Liela",
+    "areaHa": 59.5,
+    "population2020": 1355,
+    "description": "RYYDYNPOHJA on Tampereen kaupunginosa Luoteisella suuralueella. Vuonna 2020 alueella oli 1355 asukasta. Kaupunginosan pinta-ala on noin 59.5 hehtaaria."
+  },
+  {
+    "id": "550230",
+    "name": "KALKKU",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Raho",
+    "areaHa": 99.7,
+    "population2020": 3306,
+    "description": "KALKKU on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 3306 asukasta. Kaupunginosan pinta-ala on noin 99.7 hehtaaria."
+  },
+  {
+    "id": "547243",
+    "name": "TESOMAJÄRVI",
+    "suuralue": "Lounainen",
+    "suuralueDisplay": "Lounainen suuralue",
+    "suunnittelualue": "Tesoma",
+    "areaHa": 44.1,
+    "population2020": 1371,
+    "description": "TESOMAJÄRVI on Tampereen kaupunginosa Lounaisella suuralueella. Vuonna 2020 alueella oli 1371 asukasta. Kaupunginosan pinta-ala on noin 44.1 hehtaaria."
+  }
+]

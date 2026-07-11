@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './NotFound.css';
 
 export function NotFound() {
+  useEffect(() => {
+    document.title = 'Sivua ei löydy – Tampereen kaupunginosat';
+  }, []);
+
   return (
     <div className="not-found-container">
       <div className="not-found-content">

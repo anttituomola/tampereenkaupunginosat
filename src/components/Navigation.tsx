@@ -48,6 +48,13 @@ export function Navigation() {
           Etsi
         </NavLink>
         <NavLink 
+          to="/kaupunginosat" 
+          className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
+          onClick={handleLinkClick}
+        >
+          Kaupunginosat
+        </NavLink>
+        <NavLink 
           to="/about" 
           className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}
           onClick={handleLinkClick}

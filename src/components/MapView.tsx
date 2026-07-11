@@ -18,6 +18,8 @@ const SVG_HEIGHT = 5113;
 const ZOOM_PADDING = 300; // Padding around highlighted district
 const MIN_ZOOM_RATIO = 0.5; // Minimum zoom area (50% of map)
 const ZOOM_STEP = 0.2; // Zoom step (20% per click)
+const MOBILE_BREAKPOINT = 768; // px
+const RURAL_EXCLUDED_COUNT = 7; // Largest rural districts to exclude from mobile default framing
 
 /**
  * Calculate bounding box from SVG path string
@@ -58,6 +60,64 @@ function getPathBounds(pathString: string) {
   return { minX, minY, maxX, maxY };
 }
 
+/**
+ * Approximate polygon area from SVG path string (shoelace formula).
+ */
+function getPathArea(pathString: string) {
+  const nums = pathString.match(/-?\d+\.\d+/g)?.map(Number) ?? [];
+  let area = 0;
+  const len = nums.length;
+  for (let i = 0; i < len; i += 2) {
+    const x1 = nums[i];
+    const y1 = nums[i + 1];
+    const x2 = nums[(i + 2) % len];
+    const y2 = nums[(i + 3) % len];
+    if (x2 === undefined || y2 === undefined) break;
+    area += x1 * y2 - x2 * y1;
+  }
+  return Math.abs(area) / 2;
+}
+
+/**
+ * Compute a mobile-friendly default viewBox that focuses on the dense urban
+ * core by excluding the largest rural districts (e.g. Kämmenniemi, Velaatta,
+ * Terälahti) that stretch the map far to the north-east.
+ */
+function computeDenseUrbanViewBox(districts: District[]) {
+  const withArea = districts
+    .map(d => ({ id: d.id, area: getPathArea(d.path) }))
+    .sort((a, b) => b.area - a.area);
+
+  const excludedIds = new Set(withArea.slice(0, RURAL_EXCLUDED_COUNT).map(d => d.id));
+
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+
+  districts.forEach(district => {
+    if (excludedIds.has(district.id)) return;
+    const bounds = getPathBounds(district.path);
+    if (!bounds) return;
+    minX = Math.min(minX, bounds.minX);
+    minY = Math.min(minY, bounds.minY);
+    maxX = Math.max(maxX, bounds.maxX);
+    maxY = Math.max(maxY, bounds.maxY);
+  });
+
+  if (minX === Infinity) {
+    return { x: 0, y: 0, width: SVG_WIDTH, height: SVG_HEIGHT };
+  }
+
+  const padding = 200;
+  const x = Math.max(0, minX - padding);
+  const y = Math.max(0, minY - padding);
+  const width = Math.min(SVG_WIDTH - x, maxX - minX + padding * 2);
+  const height = Math.min(SVG_HEIGHT - y, maxY - minY + padding * 2);
+
+  return { x, y, width, height };
+}
+
 export function MapView({
   districts,
   highlightedDistrictId,
@@ -69,6 +129,9 @@ export function MapView({
 }: MapViewProps) {
   const [manualZoom, setManualZoom] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
   const [animatedViewBox, setAnimatedViewBox] = useState<{ x: number; y: number; width: number; height: number } | null>(null);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < MOBILE_BREAKPOINT : false
+  );
   const animationRef = useRef<number | null>(null);
   const startViewBoxRef = useRef<{ x: number; y: number; width: number; height: number } | null>(null);
   const targetViewBoxRef = useRef<{ x: number; y: number; width: number; height: number } | null>(null);
@@ -91,20 +154,38 @@ export function MapView({
     height: SVG_HEIGHT,
   }), []);
 
+  // Mobile-friendly default viewBox focused on the dense urban core
+  const denseUrbanViewBox = useMemo(() => computeDenseUrbanViewBox(districts), [districts]);
+
+  // Base default viewBox depends on viewport
+  const defaultViewBox = useMemo(() =>
+    isMobile ? denseUrbanViewBox : fullViewBox,
+    [isMobile, denseUrbanViewBox, fullViewBox]
+  );
+
+  // Track viewport changes for responsive default view
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Calculate automatic viewBox based on highlighted district
   const autoViewBox = useMemo(() => {
     if (!highlightedDistrictId) {
-      return { x: 0, y: 0, width: SVG_WIDTH, height: SVG_HEIGHT };
+      return defaultViewBox;
     }
 
     const highlightedDistrict = districts.find(d => d.id === highlightedDistrictId);
     if (!highlightedDistrict) {
-      return { x: 0, y: 0, width: SVG_WIDTH, height: SVG_HEIGHT };
+      return defaultViewBox;
     }
 
     const bounds = getPathBounds(highlightedDistrict.path);
     if (!bounds) {
-      return { x: 0, y: 0, width: SVG_WIDTH, height: SVG_HEIGHT };
+      return defaultViewBox;
     }
 
     // Clamp bounds to SVG dimensions to handle any out-of-bounds coordinates
@@ -113,11 +194,11 @@ export function MapView({
     const clampedMaxX = Math.max(0, Math.min(bounds.maxX, SVG_WIDTH));
     const clampedMaxY = Math.max(0, Math.min(bounds.maxY, SVG_HEIGHT));
 
-    // If bounds are invalid or outside the map, show full view
+    // If bounds are invalid or outside the map, show default view
     if (clampedMinX >= clampedMaxX || clampedMinY >= clampedMaxY ||
         clampedMinX >= SVG_WIDTH || clampedMinY >= SVG_HEIGHT ||
         clampedMaxX <= 0 || clampedMaxY <= 0) {
-      return { x: 0, y: 0, width: SVG_WIDTH, height: SVG_HEIGHT };
+      return defaultViewBox;
     }
 
     // Calculate dimensions and center
@@ -177,11 +258,11 @@ export function MapView({
     // Final safety check - ensure viewBox is valid
     if (viewWidth <= 0 || viewHeight <= 0 || viewX < 0 || viewY < 0 ||
         viewX + viewWidth > SVG_WIDTH || viewY + viewHeight > SVG_HEIGHT) {
-      return { x: 0, y: 0, width: SVG_WIDTH, height: SVG_HEIGHT };
+      return defaultViewBox;
     }
 
     return { x: viewX, y: viewY, width: viewWidth, height: viewHeight };
-  }, [districts, highlightedDistrictId]);
+  }, [districts, highlightedDistrictId, defaultViewBox]);
 
   // Animation function using easeInOutCubic
   const easeInOutCubic = (t: number): number => {
@@ -235,14 +316,14 @@ export function MapView({
     if (highlightedDistrictId) {
       setManualZoom(null);
 
-      // Start with full view
-      const startBox = fullViewBox;
+      // Start from default view
+      const startBox = defaultViewBox;
       setAnimatedViewBox(startBox);
 
-      // After 1 second, animate to the highlighted district
+      // After a short delay, animate to the highlighted district
       const timer = setTimeout(() => {
         animateViewBox(startBox, autoViewBox, 1000);
-      }, 1000);
+      }, 400);
 
       return () => {
         clearTimeout(timer);
@@ -251,9 +332,9 @@ export function MapView({
         }
       };
     } else {
-      setAnimatedViewBox(fullViewBox);
+      setAnimatedViewBox(defaultViewBox);
     }
-  }, [highlightedDistrictId, fullViewBox, autoViewBox, animateViewBox]);
+  }, [highlightedDistrictId, defaultViewBox, autoViewBox, animateViewBox]);
 
   // Force zoom to full view when forceFullView prop changes
   useEffect(() => {
@@ -262,6 +343,7 @@ export function MapView({
       animateViewBox(currentBox, fullViewBox, 800);
       setManualZoom(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [forceFullView, fullViewBox, animateViewBox]);
 
   // Use manual zoom if set, otherwise use animated viewBox or auto zoom
@@ -470,7 +552,7 @@ export function MapView({
 
       setManualZoom({ x: newX, y: newY, width: newWidth, height: newHeight });
     }
-  }, [getTouchDistance, screenToSvg]);
+  }, [getTouchDistance]);
 
   const handleTouchEnd = useCallback((e: React.TouchEvent) => {
     if (e.touches.length < 2 && pinchStartRef.current) {
