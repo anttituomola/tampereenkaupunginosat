@@ -18,12 +18,12 @@ export function Navigation() {
       <button 
         className="hamburger-button"
         onClick={handleToggle}
-        aria-label="Toggle menu"
+        aria-label={isOpen ? 'Sulje valikko' : 'Avaa valikko'}
         aria-expanded={isOpen}
       >
-        <span className="hamburger-line"></span>
-        <span className="hamburger-line"></span>
-        <span className="hamburger-line"></span>
+        <span className="hamburger-icon" aria-hidden="true">
+          {isOpen ? '✕' : '☰'}
+        </span>
       </button>
       <div className={`nav-menu ${isOpen ? 'open' : ''}`}>
         <NavLink 
