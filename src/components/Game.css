@@ -57,10 +57,12 @@
   animation: fadeInOut 1s ease-in-out infinite;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  white-space: normal;
   max-width: 100%;
   box-sizing: border-box;
   width: 100%;
   margin: 0;
+  overflow: visible;
 }
 
 @keyframes fadeInOut {

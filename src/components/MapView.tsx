@@ -15,8 +15,9 @@ interface MapViewProps {
 // SVG dimensions matching the basemap PNG (tampere_fixed_roads.png)
 const SVG_WIDTH = 4942;
 const SVG_HEIGHT = 5113;
-const ZOOM_PADDING = 300; // Padding around highlighted district
-const MIN_ZOOM_RATIO = 0.5; // Minimum zoom area (50% of map)
+const ZOOM_PADDING = 300; // Padding around highlighted district for manual zoom constraints
+const AUTO_ZOOM_PADDING = 120; // Tighter padding for automatic zoom to small districts
+const MIN_ZOOM_RATIO = 0.05; // Allow zooming much closer to small districts
 const ZOOM_STEP = 0.2; // Zoom step (20% per click)
 const MOBILE_BREAKPOINT = 768; // px
 const RURAL_EXCLUDED_COUNT = 7; // Largest rural districts to exclude from mobile default framing
@@ -208,8 +209,8 @@ export function MapView({
     const centerY = (clampedMinY + clampedMaxY) / 2;
 
     // Calculate zoomed viewBox with padding
-    const paddedWidth = Math.max(width + ZOOM_PADDING * 2, SVG_WIDTH * MIN_ZOOM_RATIO);
-    const paddedHeight = Math.max(height + ZOOM_PADDING * 2, SVG_HEIGHT * MIN_ZOOM_RATIO);
+    const paddedWidth = Math.max(width + AUTO_ZOOM_PADDING * 2, SVG_WIDTH * MIN_ZOOM_RATIO);
+    const paddedHeight = Math.max(height + AUTO_ZOOM_PADDING * 2, SVG_HEIGHT * MIN_ZOOM_RATIO);
 
     // Calculate desired viewBox centered on the district
     let viewX = centerX - paddedWidth / 2;
@@ -243,14 +244,14 @@ export function MapView({
     // Ensure the district is visible - if not, expand the viewBox
     if (clampedMinX < viewX || clampedMaxX > viewX + viewWidth) {
       // Expand horizontally to include the district
-      const neededWidth = Math.max(viewWidth, clampedMaxX - clampedMinX + ZOOM_PADDING * 2);
+      const neededWidth = Math.max(viewWidth, clampedMaxX - clampedMinX + AUTO_ZOOM_PADDING * 2);
       viewWidth = Math.min(neededWidth, SVG_WIDTH);
       viewX = Math.max(0, Math.min(SVG_WIDTH - viewWidth, centerX - viewWidth / 2));
     }
 
     if (clampedMinY < viewY || clampedMaxY > viewY + viewHeight) {
       // Expand vertically to include the district
-      const neededHeight = Math.max(viewHeight, clampedMaxY - clampedMinY + ZOOM_PADDING * 2);
+      const neededHeight = Math.max(viewHeight, clampedMaxY - clampedMinY + AUTO_ZOOM_PADDING * 2);
       viewHeight = Math.min(neededHeight, SVG_HEIGHT);
       viewY = Math.max(0, Math.min(SVG_HEIGHT - viewHeight, centerY - viewHeight / 2));
     }

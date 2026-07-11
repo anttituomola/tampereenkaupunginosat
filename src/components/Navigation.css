@@ -47,7 +47,7 @@
 }
 
 .hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(8px, 8px);
+  transform: translateY(5px) rotate(45deg);
 }
 
 .hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(2) {
@@ -55,7 +55,17 @@
 }
 
 .hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+@media (max-width: 640px) {
+  .hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: translateY(4.5px) rotate(45deg);
+  }
+
+  .hamburger-button[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: translateY(-4.5px) rotate(-45deg);
+  }
 }
 
 .nav-menu {
