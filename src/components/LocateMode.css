@@ -37,6 +37,17 @@
   color: #667eea;
 }
 
+.locate-mode-hint {
+  margin: 0.75rem 0 0;
+  font-size: 0.875rem;
+  color: #555;
+  background-color: #e9ecef;
+  padding: 0.5rem 0.875rem;
+  border-radius: 999px;
+  display: inline-block;
+  line-height: 1.4;
+}
+
 .locate-mode-map-wrapper {
   position: relative;
   flex: 1;
@@ -161,6 +172,11 @@
 
   .district-name-to-find {
     font-size: 1.25rem;
+  }
+
+  .locate-mode-hint {
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.75rem;
   }
 
   .celebration-content {

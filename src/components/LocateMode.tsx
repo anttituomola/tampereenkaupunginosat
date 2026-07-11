@@ -18,6 +18,7 @@ export function LocateMode({ districts }: LocateModeProps) {
   const [recentDistricts, setRecentDistricts] = useState<string[]>([]);
   const [isWaiting, setIsWaiting] = useState(false);
   const [selectedDistrictId, setSelectedDistrictId] = useState<string | null>(null);
+  const [previewDistrictId, setPreviewDistrictId] = useState<string | null>(null);
   const [showCelebration, setShowCelebration] = useState(false);
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
   const [forceFullViewCounter, setForceFullViewCounter] = useState(0);
@@ -29,10 +30,10 @@ export function LocateMode({ districts }: LocateModeProps) {
     const availableDistricts = districts.filter(
       (d) => !recentDistricts.includes(d.id)
     );
-    
+
     // If we've used too many districts, reset the recent list
-    const districtsToUse = availableDistricts.length > 0 
-      ? availableDistricts 
+    const districtsToUse = availableDistricts.length > 0
+      ? availableDistricts
       : districts;
 
     // Pick a random district as the correct answer
@@ -41,6 +42,7 @@ export function LocateMode({ districts }: LocateModeProps) {
 
     setCurrentDistrict(correctDistrict);
     setSelectedDistrictId(null);
+    setPreviewDistrictId(null);
     setShowCelebration(false);
     setShowCorrectAnswer(false);
     setIsWaiting(false);
@@ -63,6 +65,13 @@ export function LocateMode({ districts }: LocateModeProps) {
   const handleDistrictClick = useCallback((districtId: string) => {
     if (!currentDistrict || isWaiting) return;
 
+    // First tap on a district zooms to it without selecting
+    if (previewDistrictId !== districtId) {
+      setPreviewDistrictId(districtId);
+      return;
+    }
+
+    // Second tap on the same district confirms the selection
     const isCorrect = districtId === currentDistrict.id;
     setTotalQuestions((prev) => prev + 1);
     setSelectedDistrictId(districtId);
@@ -88,11 +97,15 @@ export function LocateMode({ districts }: LocateModeProps) {
     setTimeout(() => {
       generateQuestion();
     }, NEXT_ROUND_DELAY);
-  }, [currentDistrict, isWaiting, generateQuestion]);
+  }, [currentDistrict, isWaiting, previewDistrictId, generateQuestion]);
 
   if (!currentDistrict) {
     return <div className="locate-mode-loading">Ladataan peliä...</div>;
   }
+
+  const instructionText = previewDistrictId
+    ? 'Täppää samaa aluetta uudelleen vahvistaaksesi valinnan'
+    : 'Täppää aluetta ensin zoomataksesi lähelle ja uudelleen valitaksesi sen';
 
   return (
     <div className="locate-mode-container">
@@ -100,11 +113,18 @@ export function LocateMode({ districts }: LocateModeProps) {
         <div className="locate-mode-instruction">
           <h2>Etsi kaupunginosa</h2>
           <p className="district-name-to-find">{currentDistrict.name}</p>
+          {!isWaiting && (
+            <p className="locate-mode-hint">{instructionText}</p>
+          )}
         </div>
         <div className="locate-mode-map-wrapper">
           <MapView
             districts={districts}
-            highlightedDistrictId={showCorrectAnswer || showCelebration ? currentDistrict.id : null}
+            highlightedDistrictId={
+              showCorrectAnswer || showCelebration
+                ? currentDistrict.id
+                : previewDistrictId
+            }
             onDistrictClick={handleDistrictClick}
             selectedDistrictId={showCorrectAnswer ? currentDistrict.id : (showCelebration ? selectedDistrictId : null)}
             wrongDistrictId={showCorrectAnswer && selectedDistrictId !== currentDistrict.id ? selectedDistrictId : null}
