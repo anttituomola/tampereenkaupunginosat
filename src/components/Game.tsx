@@ -121,6 +121,7 @@ export function Game({ districts }: GameProps) {
         <MapView
           districts={districts}
           highlightedDistrictId={currentDistrict.id}
+          selectedDistrictId={currentDistrict.id}
         />
         <OptionsPanel
           options={options}

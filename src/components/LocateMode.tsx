@@ -143,7 +143,10 @@ export function LocateMode({ districts }: LocateModeProps) {
             highlightedDistrictId={
               revealCorrectDistrict || showCelebration
                 ? currentDistrict.id
-                : previewDistrictId
+                : null
+            }
+            previewDistrictId={
+              !isWaiting ? previewDistrictId : null
             }
             onDistrictClick={handleDistrictClick}
             selectedDistrictId={

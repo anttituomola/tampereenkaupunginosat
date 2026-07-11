@@ -5,6 +5,7 @@ import './MapView.css';
 interface MapViewProps {
   districts: District[];
   highlightedDistrictId?: string | null;
+  previewDistrictId?: string | null;
   onDistrictClick?: (districtId: string) => void;
   onDistrictHover?: (districtId: string | null) => void;
   selectedDistrictId?: string | null;
@@ -125,6 +126,7 @@ function computeDenseUrbanViewBox(districts: District[]) {
 export function MapView({
   districts,
   highlightedDistrictId,
+  previewDistrictId,
   onDistrictClick,
   onDistrictHover,
   selectedDistrictId,
@@ -664,17 +666,20 @@ export function MapView({
 
           {/* Districts overlay */}
           {districts.map((district) => {
-            const isHighlighted = district.id === highlightedDistrictId;
-            const isSelected = district.id === selectedDistrictId;
             const isWrong = district.id === wrongDistrictId;
+            const isSelected = district.id === selectedDistrictId;
+            const isPreview = district.id === previewDistrictId;
+            const isHighlighted = district.id === highlightedDistrictId;
 
             let className = 'district-path';
             if (isWrong) {
               className += ' wrong';
-            } else if (isHighlighted) {
-              className += ' highlighted';
             } else if (isSelected) {
               className += ' selected';
+            } else if (isPreview) {
+              className += ' preview';
+            } else if (isHighlighted) {
+              className += ' highlighted';
             }
 
             return (

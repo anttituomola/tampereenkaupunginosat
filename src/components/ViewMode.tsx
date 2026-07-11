@@ -88,6 +88,7 @@ export function ViewMode({ districts }: ViewModeProps) {
           <MapView
             districts={districts}
             highlightedDistrictId={selectedDistrict?.id ?? null}
+            selectedDistrictId={selectedDistrict?.id ?? null}
             onDistrictHover={handleDistrictHover}
             onDistrictClick={handleDistrictClick}
           />
