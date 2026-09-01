@@ -1,54 +1,49 @@
-# Tampereen Kaupunginosat - Geography Quiz Game
+# Tampereen kaupunginosat
 
-A geography quiz game where players are shown a detailed, label-free map of Tampere and must identify which district is highlighted by choosing the correct name from three options. Each round presents a new district, combining learning and challenge as players try to recognize the city's neighborhoods by their shapes and locations.
+An interactive map and geography game for learning the districts of Tampere, Finland.
 
-## Features
+**[Open the live application](https://tampereenkaupunginosat.vercel.app/)**
 
-- Interactive map with district highlighting
-- Multiple choice quiz format
-- Score tracking
-- Smooth zoom animations
-- District recognition challenge
+## What it does
 
-## Tech Stack
+- Highlights a district and asks the player to identify it
+- Tracks score and accuracy
+- Provides map browsing and district search
+- Supports smooth map navigation and responsive layouts
+- Generates indexable district pages and SEO files
 
-- **React 19** - UI framework
-- **TypeScript** - Type-safe JavaScript
-- **Vite** - Build tool and dev server
-- **SVG** - Vector graphics for map rendering
-- **CSS** - Styling
+## Technical approach
+
+The source geographic data is transformed before it reaches the browser. Preprocessing scripts:
+
+1. Read and normalize GeoJSON data
+2. Convert map coordinates with `proj4`
+3. Produce browser-friendly district geometry
+4. Generate the assets used by the React interface
+
+Districts are rendered as SVG rather than through a heavyweight map SDK. This keeps the interaction model under application control and makes highlighting, selection and animation straightforward.
+
+## Stack
+
+- React 19
+- TypeScript
+- Vite
+- React Router
+- SVG and GeoJSON
+- proj4
+- ESLint
 
 ## Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
+npm run prepare-districts
 npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
 ```
 
-## Data Processing
-
-The app includes scripts to preprocess GeoJSON district data:
+Production check:
 
 ```bash
-# Process districts for SVG rendering
-npm run prepare-districts
-
-# Alternative preprocessing (legacy)
-npm run preprocess
+npm run lint
+npm run build
 ```
-
-## Project Structure
-
-- `src/components/` - React components (Game, MapView, OptionsPanel, ScorePanel)
-- `src/types.ts` - TypeScript type definitions
-- `public/` - Static assets including district data and basemap image
-- `scripts/` - Data preprocessing scripts
